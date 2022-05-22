@@ -105,15 +105,6 @@ while not gameQuit:
         pos_y = pos_y + mc_speed
         mc_cur = d_sprites.get('mc_d1')
         pygame.display.update()
-    
-    else:
-        for i in range(1, 7):
-            if key_state[pygame.K_LEFT] == False and key_state[pygame.K_RIGHT] == False and key_state[pygame.K_UP] == False and key_state[pygame.K_DOWN] == False:
-                screen.fill(white)
-                screen.blit(d_sprites.get('mc_d' + str(i)), (pos_x, pos_y))
-                pygame.display.update()
-                clock.tick(5)
-                i += 1 
 
 
     pygame.display.flip()                
