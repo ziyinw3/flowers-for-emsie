@@ -13,10 +13,11 @@ pygame.display.set_caption("Continous Reading test")
 gameQuit = False
 
 standcount = 0
+walkcount = 0
 
 while not gameQuit:
     # "FPS, lower faster"
-    clock.tick(2)
+    clock.tick(8)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -29,7 +30,11 @@ while not gameQuit:
         standcount += 1
         if standcount > 6:
             standcount = 1
-    print(standcount)
+    else:
+        walkcount += 1
+        if walkcount > 2:
+            walkcount = 1
+    print(standcount, walkcount)
     # standcount increments per tick, aka. response feedback time
-    # if key is not pressed, idle will loop through as usual. if key is pressed, idle will not increment
+    # if key is not pressed, idle will loop. if key is pressed, walking animation will loop.
     
