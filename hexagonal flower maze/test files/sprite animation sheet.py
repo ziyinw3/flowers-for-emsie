@@ -56,7 +56,7 @@ walkcount = 1
 
 while not gameQuit:
     # "FPS, lower faster"
-    clock.tick(8)
+    clock.tick(10)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
