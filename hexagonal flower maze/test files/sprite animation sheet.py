@@ -21,7 +21,7 @@ for name in d_names:
     d_sprites[name] = pygame.image.load(filename)
 
 dw_names = []
-for i in range(1, 3):
+for i in range(1, 9):
     dw_names.append("mc_dw" + str(i))
     i = i + 1
 
@@ -40,23 +40,35 @@ for name in u_names:
     filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
     u_sprites[name] = pygame.image.load(filename)    
 
+t_names = []
+for i in range(1, 5):
+    t_names.append("tail" + str(i))
+    i = i + 1
 
+t_sprites = {}
+for name in t_names:
+    filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
+    t_sprites[name] = pygame.image.load(filename)  
+
+print(t_names)
 
 
 mc_cur = d_sprites.get('mc_d1')
 (pos_x, pos_y) = (100, 100)
 (pos_x2, pos_y2) = (150, 100)
 (pos_x3, pos_y3) = (200, 100)
+(pos_x4, pos_y4) = (250, 100)
 mc_speed = 10
 
 gameQuit = False
 
 standcount = 1
 walkcount = 1
+tailcount = 1
 
 while not gameQuit:
     # "FPS, lower faster"
-    clock.tick(10)
+    clock.tick(8)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -72,8 +84,13 @@ while not gameQuit:
     screen.blit(u_sprites['mc_u' + str(standcount % 7)], (pos_x2, pos_y2))
 
     walkcount += 1
-    if walkcount == 3:
+    if walkcount == 9:
         walkcount = 1
-    screen.blit(dw_sprites['mc_dw'+ str(walkcount % 3)], (pos_x3, pos_y3))
+    screen.blit(dw_sprites['mc_dw'+ str(walkcount % 9)], (pos_x3, pos_y3))
+
+    tailcount += 1
+    if tailcount == 5:
+        tailcount = 1
+    screen.blit(t_sprites['tail'+ str(tailcount % 5)], (pos_x4, pos_y4))
     
     pygame.display.flip()

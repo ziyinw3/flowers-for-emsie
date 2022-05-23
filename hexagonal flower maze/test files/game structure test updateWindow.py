@@ -19,7 +19,7 @@ for name in d_names:
     d_sprites[name] = pygame.image.load(filename)
 
 dw_names = []
-for i in range(1, 3):
+for i in range(1, 9):
     dw_names.append("mc_dw" + str(i))
     i = i + 1
 
@@ -67,9 +67,9 @@ def updateFrame():
     # detect if down key is pressed: if so, iterate through walkcount sprites, else, iterate through standcount sprites
     if down:
         walkcount += 1
-        if walkcount > 2:
+        if walkcount > 8:
             walkcount = 1
-        win.blit(dw_sprites['mc_dw' + str(walkcount % 3)], (x, y))
+        win.blit(dw_sprites['mc_dw' + str(walkcount % 9)], (x, y))
     else:
         standcount += 1
         if standcount > 6:
