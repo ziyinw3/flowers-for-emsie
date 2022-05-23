@@ -1,7 +1,7 @@
 import pygame
 pygame.init()
 
-win = pygame.display.set_mode((640,480))
+screen = pygame.display.set_mode((640,480))
 pygame.display.set_caption("test with updateWindow class")
 
 # sprites bank -----------------------------------------------------------------------------------------------------------
@@ -9,36 +9,43 @@ pygame.display.set_caption("test with updateWindow class")
 #facing down sprites
 
 d_names = []
-for i in range(1, 7):
+for i in range(1, 13):
     d_names.append("mc_d" + str(i))
     i = i + 1
 
-d_sprites = {}
+d_sprites_dic = {}
 for name in d_names:
     filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
-    d_sprites[name] = pygame.image.load(filename)
+    d_sprites_dic[name] = pygame.image.load(filename)
+
+d_vals = d_sprites_dic.values()
+d_sprites = list(d_vals)
 
 dw_names = []
 for i in range(1, 9):
     dw_names.append("mc_dw" + str(i))
     i = i + 1
 
-dw_sprites = {}
+dw_sprites_dic = {}
 for name in dw_names:
     filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
-    dw_sprites[name] = pygame.image.load(filename)
+    dw_sprites_dic[name] = pygame.image.load(filename)
 
-#facing up sprites
+dw_vals = dw_sprites_dic.values()
+dw_sprites = list(dw_vals)
 
 u_names = []
-for i in range(1, 7):
+for i in range(1, 13):
     u_names.append("mc_u" + str(i))
     i = i + 1
 
-u_sprites = {}
+u_sprites_dic = {}
 for name in u_names:
     filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
-    u_sprites[name] = pygame.image.load(filename)
+    u_sprites_dic[name] = pygame.image.load(filename)
+
+u_vals = u_sprites_dic.values()
+u_sprites = list(u_vals)    
 
 clock = pygame.time.Clock()
 
@@ -61,20 +68,21 @@ def updateFrame():
     global walkcount
     global standcount
 
-    win.fill(white)
+    screen.fill(white)
 
     # loop animation back to 1 when loop is finished      
     # detect if down key is pressed: if so, iterate through walkcount sprites, else, iterate through standcount sprites
     if down:
         walkcount += 1
-        if walkcount > 8:
-            walkcount = 1
-        win.blit(dw_sprites['mc_dw' + str(walkcount % 9)], (x, y))
+    if walkcount + 1 == 33:
+        walkcount = 1
+        screen.blit(dw_sprites[walkcount // 4], (x, y))
     else:
         standcount += 1
-        if standcount > 6:
+        if standcount + 1 == 49:
             standcount = 1
-        win.blit(d_sprites['mc_d' + str(standcount % 7)], (x, y))
+            screen.fill(white)
+            screen.blit(d_sprites[standcount // 4], (x, y))
 
     print(walkcount, standcount)
 

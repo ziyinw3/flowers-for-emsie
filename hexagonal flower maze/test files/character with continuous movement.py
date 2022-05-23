@@ -20,7 +20,7 @@ pygame.display.set_caption("Continuous Movement Test")
 
 # down idle set (d1 - d6)
 d_names = []
-for i in range(1, 7):
+for i in range(1, 13):
     d_names.append("mc_d" + str(i))
     i = i + 1
 
@@ -32,7 +32,7 @@ for name in d_names:
 # down walking set ()
 
 u_names = []
-for i in range(1, 7):
+for i in range(1, 13):
     u_names.append("mc_u" + str(i))
     i = i + 1
 
@@ -51,13 +51,13 @@ mc_r = pygame.image.load("hexagonal flower maze\sprites\emsie\mc sprite right.pn
 sprite_dim = (41, 41)
 mc_cur = d_sprites.get('mc_d1')
 (pos_x, pos_y) = (100, 100)
-mc_speed = 10
+mc_speed = 5
 
 gameQuit = False
 
 while not gameQuit:
     # "FPS, lower faster"
-    clock.tick(15)
+    clock.tick(30)
     screen.fill(white)
     screen.blit(mc_cur, (pos_x, pos_y))
     pygame.display.update()

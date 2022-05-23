@@ -11,37 +11,46 @@ screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Sprite Sheet Tests")
 
 d_names = []
-for i in range(1, 7):
+for i in range(1, 13):
     d_names.append("mc_d" + str(i))
     i = i + 1
 
-d_sprites = {}
+d_sprites_dic = {}
 for name in d_names:
     filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
-    d_sprites[name] = pygame.image.load(filename)
+    d_sprites_dic[name] = pygame.image.load(filename)
+
+d_vals = d_sprites_dic.values()
+d_sprites = list(d_vals)
 
 dw_names = []
 for i in range(1, 9):
     dw_names.append("mc_dw" + str(i))
     i = i + 1
 
-dw_sprites = {}
+dw_sprites_dic = {}
 for name in dw_names:
     filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
-    dw_sprites[name] = pygame.image.load(filename)
+    dw_sprites_dic[name] = pygame.image.load(filename)
+
+dw_vals = dw_sprites_dic.values()
+dw_sprites = list(dw_vals)
 
 u_names = []
-for i in range(1, 7):
+for i in range(1, 13):
     u_names.append("mc_u" + str(i))
     i = i + 1
 
-u_sprites = {}
+u_sprites_dic = {}
 for name in u_names:
     filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
-    u_sprites[name] = pygame.image.load(filename)    
+    u_sprites_dic[name] = pygame.image.load(filename)
+
+u_vals = u_sprites_dic.values()
+u_sprites = list(u_vals)    
 
 
-mc_cur = d_sprites.get('mc_d1')
+mc_cur = d_sprites_dic.get('mc_d1')
 (pos_x, pos_y) = (100, 100)
 (pos_x2, pos_y2) = (150, 100)
 (pos_x3, pos_y3) = (200, 100)
@@ -55,7 +64,7 @@ walkcount = 1
 
 while not gameQuit:
     # "FPS, lower faster"
-    clock.tick(10)
+    clock.tick(30)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -64,15 +73,15 @@ while not gameQuit:
             sys.exit()
 
     standcount += 1
-    if standcount == 13:
+    if standcount + 1 == 49:
         standcount = 1
     screen.fill(white)
-    screen.blit(d_sprites['mc_d' + str(standcount % 13)], (pos_x, pos_y))
-    screen.blit(u_sprites['mc_u' + str(standcount % 13)], (pos_x2, pos_y2))
+    screen.blit(d_sprites[standcount // 4], (pos_x, pos_y))
+    screen.blit(u_sprites[standcount // 4], (pos_x2, pos_y2))
 
     walkcount += 1
-    if walkcount == 9:
+    if walkcount + 1 == 33:
         walkcount = 1
-    screen.blit(dw_sprites['mc_dw'+ str(walkcount % 9)], (pos_x3, pos_y3))
+    screen.blit(dw_sprites[walkcount // 4], (pos_x3, pos_y3))
     
     pygame.display.flip()
