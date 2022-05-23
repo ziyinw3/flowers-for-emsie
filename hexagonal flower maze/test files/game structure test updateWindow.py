@@ -67,7 +67,7 @@ def updateFrame():
     # detect if down key is pressed: if so, iterate through walkcount sprites, else, iterate through standcount sprites
     if down:
         walkcount += 1
-        if walkcount > 3:
+        if walkcount > 2:
             walkcount = 1
         win.blit(dw_sprites['mc_dw' + str(walkcount % 3)], (x, y))
     else:
@@ -83,7 +83,7 @@ def updateFrame():
 run = True
 
 while run:
-    clock.tick(2)
+    clock.tick(10)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
