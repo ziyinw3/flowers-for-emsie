@@ -83,7 +83,7 @@ def updateFrame():
 run = True
 
 while run:
-    clock.tick(8)
+    clock.tick(2)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -94,8 +94,10 @@ while run:
     if keys[pygame.K_DOWN]:
         y += vel
         down = True
+        standcount = 0
     else:
         down = False
+        walkcount = 0
     
     updateFrame()
 
