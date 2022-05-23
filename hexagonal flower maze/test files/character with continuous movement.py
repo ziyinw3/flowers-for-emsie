@@ -26,7 +26,7 @@ for i in range(1, 13):
 
 d_sprites = {}
 for name in d_names:
-    filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
+    filename = 'working\sprites\emsie\\' + name + '.png'
     d_sprites[name] = pygame.image.load(filename)
 
 # down walking set ()
@@ -38,14 +38,14 @@ for i in range(1, 13):
 
 u_sprites = {}
 for name in u_names:
-    filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
+    filename = 'working\sprites\emsie\\' + name + '.png'
     u_sprites[name] = pygame.image.load(filename)
 
 
-mc_l = pygame.image.load("hexagonal flower maze\sprites\emsie\mc sprite left.png")
+mc_l = pygame.image.load("working\sprites\emsie\mc sprite left.png")
 
 
-mc_r = pygame.image.load("hexagonal flower maze\sprites\emsie\mc sprite right.png")
+mc_r = pygame.image.load("working\sprites\emsie\mc sprite right.png")
 
 
 sprite_dim = (41, 41)

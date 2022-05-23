@@ -17,7 +17,7 @@ for i in range(1, 13):
 
 d_sprites_dic = {}
 for name in d_names:
-    filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
+    filename = 'working\sprites\emsie\\' + name + '.png'
     d_sprites_dic[name] = pygame.image.load(filename)
 
 d_vals = d_sprites_dic.values()

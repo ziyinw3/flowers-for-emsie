@@ -15,7 +15,7 @@ for i in range(1, 13):
 
 d_sprites_dic = {}
 for name in d_names:
-    filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
+    filename = 'working\sprites\emsie\\' + name + '.png'
     d_sprites_dic[name] = pygame.image.load(filename)
 
 d_vals = d_sprites_dic.values()
@@ -28,7 +28,7 @@ for i in range(1, 9):
 
 dw_sprites_dic = {}
 for name in dw_names:
-    filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
+    filename = 'working\sprites\emsie\\' + name + '.png'
     dw_sprites_dic[name] = pygame.image.load(filename)
 
 dw_vals = dw_sprites_dic.values()
@@ -41,7 +41,7 @@ for i in range(1, 13):
 
 u_sprites_dic = {}
 for name in u_names:
-    filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
+    filename = 'working\sprites\emsie\\' + name + '.png'
     u_sprites_dic[name] = pygame.image.load(filename)
 
 u_vals = u_sprites_dic.values()
@@ -52,7 +52,7 @@ clock = pygame.time.Clock()
 white = (225, 225, 225)
 
 (x, y) = (100, 100)
-vel = 10
+vel = 3
 
 left = False
 right = False
@@ -74,15 +74,15 @@ def updateFrame():
     # detect if down key is pressed: if so, iterate through walkcount sprites, else, iterate through standcount sprites
     if down:
         walkcount += 1
-    if walkcount + 1 == 33:
-        walkcount = 1
+        if walkcount + 1 == 33:
+            walkcount = 1
         screen.blit(dw_sprites[walkcount // 4], (x, y))
     else:
         standcount += 1
         if standcount + 1 == 49:
             standcount = 1
-            screen.fill(white)
-            screen.blit(d_sprites[standcount // 4], (x, y))
+        screen.fill(white)
+        screen.blit(d_sprites[standcount // 4], (x, y))
 
     print(walkcount, standcount)
 
@@ -91,7 +91,7 @@ def updateFrame():
 run = True
 
 while run:
-    clock.tick(15)
+    clock.tick(30)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
