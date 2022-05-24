@@ -17,20 +17,20 @@ for i in range(1, 13):
 
 d_sprites_dic = {}
 for name in d_names:
-    filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
+    filename = 'working\sprites\emsie\\' + name + '.png'
     d_sprites_dic[name] = pygame.image.load(filename)
 
 d_vals = d_sprites_dic.values()
 d_sprites = list(d_vals)
 
 dw_names = []
-for i in range(1, 9):
+for i in range(1, 17):
     dw_names.append("mc_dw" + str(i))
     i = i + 1
 
 dw_sprites_dic = {}
 for name in dw_names:
-    filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
+    filename = 'working\sprites\emsie\\' + name + '.png'
     dw_sprites_dic[name] = pygame.image.load(filename)
 
 dw_vals = dw_sprites_dic.values()
@@ -43,7 +43,7 @@ for i in range(1, 13):
 
 u_sprites_dic = {}
 for name in u_names:
-    filename = 'hexagonal flower maze\sprites\emsie\\' + name + '.png'
+    filename = 'working\sprites\emsie\\' + name + '.png'
     u_sprites_dic[name] = pygame.image.load(filename)
 
 u_vals = u_sprites_dic.values()
@@ -73,14 +73,14 @@ while not gameQuit:
             sys.exit()
 
     standcount += 1
-    if standcount + 1 == 49:
+    if standcount >= 48:
         standcount = 1
     screen.fill(white)
     screen.blit(d_sprites[standcount // 4], (pos_x, pos_y))
     screen.blit(u_sprites[standcount // 4], (pos_x2, pos_y2))
 
     walkcount += 1
-    if walkcount + 1 == 33:
+    if walkcount >= 64:
         walkcount = 1
     screen.blit(dw_sprites[walkcount // 4], (pos_x3, pos_y3))
     
