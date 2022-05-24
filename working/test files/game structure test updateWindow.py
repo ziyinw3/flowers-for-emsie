@@ -47,6 +47,22 @@ for name in u_names:
 u_vals = u_sprites_dic.values()
 u_sprites = list(u_vals)    
 
+# uw_names = []
+# for i in range(1, 17):
+#     uw_names.append("mc_uw" + str(i))
+#     i = i + 1
+
+# uw_sprites_dic = {}
+# for name in uw_names:
+#     filename = 'working\sprites\emsie\\' + name + '.png'
+#     uw_sprites_dic[name] = pygame.image.load(filename)
+
+# uw_vals = uw_sprites_dic.values()
+# uw_sprites = list(uw_vals)
+
+
+
+
 clock = pygame.time.Clock()
 
 white = (225, 225, 225)
@@ -70,7 +86,7 @@ def updateFrame():
 
     screen.fill(white)
 
-    # loop animation back to 1 when loop is finished      
+    # loop animation back to frame 1 when loop is finished      
     # detect if down key is pressed: if so, iterate through walkcount sprites, else, iterate through standcount sprites
     if down:
         walkcount += 1
@@ -87,6 +103,10 @@ def updateFrame():
             screen.blit(d_sprites[standcount // 4], (x, y))
         elif last_pressed == pygame.K_UP:
             screen.blit(u_sprites[standcount // 4], (x, y))
+        # elif last_pressed == pygame.K_LEFT:
+        #     screen.blit(l_sprites[standcount // 4], (x, y))
+        # else:
+        #     screen.blit(r_sprites[standcount // 4], (x, y))
 
     print(walkcount, standcount)
 

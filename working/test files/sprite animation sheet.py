@@ -49,6 +49,18 @@ for name in u_names:
 u_vals = u_sprites_dic.values()
 u_sprites = list(u_vals)    
 
+uw_names = []
+for i in range(1, 17):
+    uw_names.append("mc_uw" + str(i))
+    i = i + 1
+
+uw_sprites_dic = {}
+for name in uw_names:
+    filename = 'working\sprites\emsie\\' + name + '.png'
+    uw_sprites_dic[name] = pygame.image.load(filename)
+
+uw_vals = uw_sprites_dic.values()
+uw_sprites = list(uw_vals)
 
 mc_cur = d_sprites_dic.get('mc_d1')
 (pos_x, pos_y) = (100, 100)
@@ -83,5 +95,6 @@ while not gameQuit:
     if walkcount >= 64:
         walkcount = 1
     screen.blit(dw_sprites[walkcount // 4], (pos_x3, pos_y3))
+    screen.blit(uw_sprites[walkcount // 4], (pos_x4, pos_y4))
     
     pygame.display.flip()
