@@ -47,18 +47,18 @@ for name in u_names:
 u_vals = u_sprites_dic.values()
 u_sprites = list(u_vals)    
 
-# uw_names = []
-# for i in range(1, 17):
-#     uw_names.append("mc_uw" + str(i))
-#     i = i + 1
+uw_names = []
+for i in range(1, 17):
+    uw_names.append("mc_uw" + str(i))
+    i = i + 1
 
-# uw_sprites_dic = {}
-# for name in uw_names:
-#     filename = 'working\sprites\emsie\\' + name + '.png'
-#     uw_sprites_dic[name] = pygame.image.load(filename)
+uw_sprites_dic = {}
+for name in uw_names:
+    filename = 'working\sprites\emsie\\' + name + '.png'
+    uw_sprites_dic[name] = pygame.image.load(filename)
 
-# uw_vals = uw_sprites_dic.values()
-# uw_sprites = list(uw_vals)
+uw_vals = uw_sprites_dic.values()
+uw_sprites = list(uw_vals)
 
 
 
@@ -93,6 +93,11 @@ def updateFrame():
         if walkcount >= 64:
             walkcount = 1
         screen.blit(dw_sprites[walkcount // 4], (x, y))
+    elif up:
+        walkcount += 1
+        if walkcount >= 64:
+            walkcount = 1
+        screen.blit(uw_sprites[walkcount // 4], (x, y))
 
     else:
         standcount += 1
@@ -131,9 +136,12 @@ while run:
 
     elif keys[pygame.K_UP]:
         last_pressed = pygame.K_UP
-        
+        y -= vel
+        up = True
+        standcount = 0        
     else:
         down = False
+        up = False
         walkcount = 0
     
     updateFrame()
