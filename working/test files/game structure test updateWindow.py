@@ -138,10 +138,25 @@ while run:
         last_pressed = pygame.K_UP
         y -= vel
         up = True
-        standcount = 0        
+        standcount = 0
+
+    # elif keys[pygame.K_LEFT]:
+    #     last_pressed = pygame.LEFT
+    #     x -= vel
+    #     left = True
+    #     standcount = 0
+
+    # elif keys[pygame.K_RIGHT]:
+    #     last_pressed = pygame.RIGHT
+    #     x += vel
+    #     right = True
+    #     standcount = 0            
+
     else:
         down = False
         up = False
+        left = False
+        right = False
         walkcount = 0
     
     updateFrame()

@@ -62,11 +62,52 @@ for name in uw_names:
 uw_vals = uw_sprites_dic.values()
 uw_sprites = list(uw_vals)
 
+r_names = []
+for i in range(1, 13):
+    r_names.append("mc_r" + str(i))
+    i = i + 1
+
+r_sprites_dic = {}
+for name in r_names:
+    filename = 'working\sprites\emsie\\' + name + '.png'
+    r_sprites_dic[name] = pygame.image.load(filename)
+
+r_vals = r_sprites_dic.values()
+r_sprites = list(r_vals)   
+
+# rw_names = []
+# for i in range(1, 17):
+#     rw_names.append("mc_rw" + str(i))
+#     i = i + 1
+
+# rw_sprites_dic = {}
+# for name in rw_names:
+#     filename = 'working\sprites\emsie\\' + name + '.png'
+#     rw_sprites_dic[name] = pygame.image.load(filename)
+
+# rw_vals = rw_sprites_dic.values()
+# rw_sprites = list(rw_vals)
+
+l_names = []
+for i in range(1, 13):
+    l_names.append("mc_l" + str(i))
+    i = i + 1
+
+l_sprites_dic = {}
+for name in l_names:
+    filename = 'working\sprites\emsie\\' + name + '.png'
+    l_sprites_dic[name] = pygame.image.load(filename)
+
+l_vals = l_sprites_dic.values()
+l_sprites = list(l_vals)  
+
 mc_cur = d_sprites_dic.get('mc_d1')
 (pos_x, pos_y) = (100, 100)
 (pos_x2, pos_y2) = (150, 100)
 (pos_x3, pos_y3) = (200, 100)
-(pos_x4, pos_y4) = (250, 100)
+(pos_x4, pos_y4) = (100, 150)
+(pos_x5, pos_y5) = (150, 150)
+(pos_x6, pos_y6) = (250, 100)
 mc_speed = 10
 
 gameQuit = False
@@ -90,11 +131,13 @@ while not gameQuit:
     screen.fill(white)
     screen.blit(d_sprites[standcount // 4], (pos_x, pos_y))
     screen.blit(u_sprites[standcount // 4], (pos_x2, pos_y2))
+    screen.blit(r_sprites[standcount // 4], (pos_x3, pos_y3))
+    screen.blit(l_sprites[standcount // 4], (pos_x6, pos_y6))
 
     walkcount += 1
     if walkcount >= 64:
         walkcount = 1
-    screen.blit(dw_sprites[walkcount // 4], (pos_x3, pos_y3))
-    screen.blit(uw_sprites[walkcount // 4], (pos_x4, pos_y4))
+    screen.blit(dw_sprites[walkcount // 4], (pos_x4, pos_y4))
+    screen.blit(uw_sprites[walkcount // 4], (pos_x5, pos_y5))
     
     pygame.display.flip()
