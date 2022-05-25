@@ -101,6 +101,19 @@ for name in l_names:
 l_vals = l_sprites_dic.values()
 l_sprites = list(l_vals)  
 
+lw_names = []
+for i in range(1, 17):
+    lw_names.append("mc_lw" + str(i))
+    i = i + 1
+
+lw_sprites_dic = {}
+for name in lw_names:
+    filename = 'working\sprites\emsie\\' + name + '.png'
+    lw_sprites_dic[name] = pygame.image.load(filename)
+
+lw_vals = lw_sprites_dic.values()
+lw_sprites = list(lw_vals)
+
 mc_cur = d_sprites_dic.get('mc_d1')
 (pos_x, pos_y) = (100, 100)
 (pos_x2, pos_y2) = (150, 100)
@@ -109,6 +122,7 @@ mc_cur = d_sprites_dic.get('mc_d1')
 (pos_x5, pos_y5) = (150, 150)
 (pos_x6, pos_y6) = (250, 100)
 (pos_x7, pos_y7) = (200, 150)
+(pos_x8, pos_y8) = (250, 150)
 mc_speed = 10
 
 gameQuit = False
@@ -118,7 +132,7 @@ walkcount = 1
 
 while not gameQuit:
     # "FPS, lower faster"
-    clock.tick(5)
+    clock.tick(30)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -141,5 +155,6 @@ while not gameQuit:
     screen.blit(dw_sprites[walkcount // 4], (pos_x4, pos_y4))
     screen.blit(uw_sprites[walkcount // 4], (pos_x5, pos_y5))
     screen.blit(rw_sprites[walkcount // 4], (pos_x7, pos_y7))
+    screen.blit(lw_sprites[walkcount // 4], (pos_x8, pos_y8))
     
     pygame.display.flip()

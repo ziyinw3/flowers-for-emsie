@@ -8,8 +8,15 @@ things to redo:
 move sprites into sprite sheet
 draw rectangle class?
 
+things to add in the foreseeable future:
+watering animation per angle (make it obvious from the back!)
+celebration animation!
 
 
+
+things to add later:
+on screen buttons for retry and new maze:
+-time fast forward and time go backward transition animations (clock)
 
 
 endgame:
