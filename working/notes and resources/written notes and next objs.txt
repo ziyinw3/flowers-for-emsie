@@ -1,0 +1,17 @@
+things for upscaling and optimization:
+
+package (init, packaging, core, oop, modules, classes, methods, packets)
+
+
+
+things to redo:
+move sprites into sprite sheet
+draw rectangle class?
+
+
+
+
+
+endgame:
+convert to .exe for publishing
+fit different resolutions?

@@ -75,18 +75,18 @@ for name in r_names:
 r_vals = r_sprites_dic.values()
 r_sprites = list(r_vals)   
 
-# rw_names = []
-# for i in range(1, 17):
-#     rw_names.append("mc_rw" + str(i))
-#     i = i + 1
+rw_names = []
+for i in range(1, 17):
+    rw_names.append("mc_rw" + str(i))
+    i = i + 1
 
-# rw_sprites_dic = {}
-# for name in rw_names:
-#     filename = 'working\sprites\emsie\\' + name + '.png'
-#     rw_sprites_dic[name] = pygame.image.load(filename)
+rw_sprites_dic = {}
+for name in rw_names:
+    filename = 'working\sprites\emsie\\' + name + '.png'
+    rw_sprites_dic[name] = pygame.image.load(filename)
 
-# rw_vals = rw_sprites_dic.values()
-# rw_sprites = list(rw_vals)
+rw_vals = rw_sprites_dic.values()
+rw_sprites = list(rw_vals)
 
 l_names = []
 for i in range(1, 13):
@@ -108,6 +108,7 @@ mc_cur = d_sprites_dic.get('mc_d1')
 (pos_x4, pos_y4) = (100, 150)
 (pos_x5, pos_y5) = (150, 150)
 (pos_x6, pos_y6) = (250, 100)
+(pos_x7, pos_y7) = (200, 150)
 mc_speed = 10
 
 gameQuit = False
@@ -117,7 +118,7 @@ walkcount = 1
 
 while not gameQuit:
     # "FPS, lower faster"
-    clock.tick(30)
+    clock.tick(5)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -139,5 +140,6 @@ while not gameQuit:
         walkcount = 1
     screen.blit(dw_sprites[walkcount // 4], (pos_x4, pos_y4))
     screen.blit(uw_sprites[walkcount // 4], (pos_x5, pos_y5))
+    screen.blit(rw_sprites[walkcount // 4], (pos_x7, pos_y7))
     
     pygame.display.flip()
