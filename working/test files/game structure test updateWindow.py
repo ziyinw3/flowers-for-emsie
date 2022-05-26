@@ -6,8 +6,6 @@ pygame.display.set_caption("test with updateWindow class")
 
 # sprites bank -----------------------------------------------------------------------------------------------------------
 
-#facing down sprites
-
 d_names = []
 for i in range(1, 13):
     d_names.append("mc_d" + str(i))
@@ -60,7 +58,57 @@ for name in uw_names:
 uw_vals = uw_sprites_dic.values()
 uw_sprites = list(uw_vals)
 
+r_names = []
+for i in range(1, 13):
+    r_names.append("mc_r" + str(i))
+    i = i + 1
 
+r_sprites_dic = {}
+for name in r_names:
+    filename = 'working\sprites\emsie\\' + name + '.png'
+    r_sprites_dic[name] = pygame.image.load(filename)
+
+r_vals = r_sprites_dic.values()
+r_sprites = list(r_vals)   
+
+rw_names = []
+for i in range(1, 17):
+    rw_names.append("mc_rw" + str(i))
+    i = i + 1
+
+rw_sprites_dic = {}
+for name in rw_names:
+    filename = 'working\sprites\emsie\\' + name + '.png'
+    rw_sprites_dic[name] = pygame.image.load(filename)
+
+rw_vals = rw_sprites_dic.values()
+rw_sprites = list(rw_vals)
+
+l_names = []
+for i in range(1, 13):
+    l_names.append("mc_l" + str(i))
+    i = i + 1
+
+l_sprites_dic = {}
+for name in l_names:
+    filename = 'working\sprites\emsie\\' + name + '.png'
+    l_sprites_dic[name] = pygame.image.load(filename)
+
+l_vals = l_sprites_dic.values()
+l_sprites = list(l_vals)  
+
+lw_names = []
+for i in range(1, 17):
+    lw_names.append("mc_lw" + str(i))
+    i = i + 1
+
+lw_sprites_dic = {}
+for name in lw_names:
+    filename = 'working\sprites\emsie\\' + name + '.png'
+    lw_sprites_dic[name] = pygame.image.load(filename)
+
+lw_vals = lw_sprites_dic.values()
+lw_sprites = list(lw_vals)
 
 
 clock = pygame.time.Clock()
@@ -68,7 +116,7 @@ clock = pygame.time.Clock()
 white = (225, 225, 225)
 
 (x, y) = (100, 100)
-vel = 2
+vel = 3
 
 left = False
 right = False
@@ -77,8 +125,28 @@ down = False
 
 last_pressed = pygame.K_DOWN
 
+events = pygame.event.get()
+
 walkcount = 0
 standcount = 0
+
+direction = []
+
+def direction_state():
+    global direction
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            keys_dir = pygame.key.get_pressed()
+            direction = []
+            if keys_dir[pygame.K_DOWN]:
+                direction.append('V')
+            if keys_dir[pygame.K_UP]:
+                direction.append('^')
+            if keys_dir[pygame.K_LEFT]:
+                direction.append('<')
+            if keys_dir[pygame.K_RIGHT]:
+                direction.append('>')
+    print(direction)  
 
 def updateFrame():
     global walkcount
@@ -98,29 +166,42 @@ def updateFrame():
         if walkcount >= 64:
             walkcount = 1
         screen.blit(uw_sprites[walkcount // 4], (x, y))
+    elif right:
+        walkcount += 1
+        if walkcount >= 64:
+            walkcount = 1
+        screen.blit(rw_sprites[walkcount // 4], (x, y))   
+    elif left:
+        walkcount += 1
+        if walkcount >= 64:
+            walkcount = 1
+        screen.blit(lw_sprites[walkcount // 4], (x, y))   
+
+    # loop to update idles based on last key pressed
 
     else:
         standcount += 1
         if standcount >= 48:
             standcount = 1
         screen.fill(white)
-        if last_pressed == pygame.K_DOWN:
-            screen.blit(d_sprites[standcount // 4], (x, y))
-        elif last_pressed == pygame.K_UP:
+        if last_pressed == pygame.K_UP:
             screen.blit(u_sprites[standcount // 4], (x, y))
-        # elif last_pressed == pygame.K_LEFT:
-        #     screen.blit(l_sprites[standcount // 4], (x, y))
-        # else:
-        #     screen.blit(r_sprites[standcount // 4], (x, y))
+        elif last_pressed == pygame.K_LEFT:
+            screen.blit(l_sprites[standcount // 4], (x, y))
+        elif last_pressed == pygame.K_RIGHT:
+            screen.blit(r_sprites[standcount // 4], (x, y))
+        else:
+            last_pressed == pygame.K_DOWN
+            screen.blit(d_sprites[standcount // 4], (x, y))
 
-    print(walkcount, standcount)
+    # print(walkcount, standcount)
 
     pygame.display.update()
 
 run = True
 
 while run:
-    clock.tick(30)
+    clock.tick(10)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -134,23 +215,23 @@ while run:
         down = True
         standcount = 0
 
-    elif keys[pygame.K_UP]:
+    if keys[pygame.K_UP]:
         last_pressed = pygame.K_UP
         y -= vel
         up = True
         standcount = 0
 
-    # elif keys[pygame.K_LEFT]:
-    #     last_pressed = pygame.LEFT
-    #     x -= vel
-    #     left = True
-    #     standcount = 0
+    if keys[pygame.K_LEFT]:
+        last_pressed = pygame.K_LEFT
+        x -= vel
+        left = True
+        standcount = 0
 
-    # elif keys[pygame.K_RIGHT]:
-    #     last_pressed = pygame.RIGHT
-    #     x += vel
-    #     right = True
-    #     standcount = 0            
+    if keys[pygame.K_RIGHT]:
+        last_pressed = pygame.K_RIGHT
+        x += vel
+        right = True
+        standcount = 0            
 
     else:
         down = False
@@ -160,5 +241,6 @@ while run:
         walkcount = 0
     
     updateFrame()
+    direction_state()
 
 # pygame.quit()
