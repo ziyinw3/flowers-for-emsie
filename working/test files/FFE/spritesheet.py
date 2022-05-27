@@ -20,12 +20,12 @@ class SpriteSheet:
         """Load a whole bunch of images and return them as a list."""
         return [self.image_at(rect) for rect in rects]
 
-    def load_grid_images(self, num_rows, num_cols):
+    def load_sprite_set(self, num_rows, num_cols):
         """Load a grid of images.
         Calls self.images_at() to get list of images.
         """
         sheet_rect = self.sheet.get_rect()
-        sheet_width, sheet_height = sheet_rect.size
+        # sheet_width, sheet_height = sheet_rect.size
 
         x_sprite_size = 41
         y_sprite_size = 41
@@ -38,7 +38,7 @@ class SpriteSheet:
                 sprite_rect = (x, y, x_sprite_size, y_sprite_size)
                 sprite_rects.append(sprite_rect)
 
-        grid_images = self.images_at(sprite_rects)
-        print(f"Loaded {len(grid_images)} grid images.")
+        sprite_set = self.images_at(sprite_rects)
+        print(f"Loaded {len(sprite_set)} grid images.")
 
-        return grid_images    
+        return sprite_set    

@@ -22,9 +22,18 @@ class mc_sprite_set:
         - Adds each piece to the group self.mc_sprites.
         """
         filename = 'working\\test files\FFE\images\mc_m_sheet.png'
-        mc_sprite_ss = SpriteSheet(filename)
+        mc_sprite_set = SpriteSheet(filename)
 
-        
+          # Load all piece images.
+        sprite_images = mc_sprite_set.load_sprite_set(1, 12)
+
+        # Create a new Piece object for every image.
+        for image in sprite_images:
+            sprite = mc_sprite(self.FFE)
+            sprite.image = image
+            self.mc_sprite_set.append(sprite)
+
+
 
 class mc_sprite:
     """Represents a sprite image."""
