@@ -5,43 +5,32 @@ from pygame.locals import *
 # prelims
 pygame.init()
 clock = pygame.time.Clock()
+screen = pygame.display.set_mode((200,200))
+pygame.display.set_caption("test with keydown combo")
 
 key_dict = {K_DOWN:'V', K_UP:'^', K_LEFT:'<', K_RIGHT:'>'}
 
 # character class
 
-class mc():
-    def __init__(self):
-        (x, y) = (0, 0)
+class mc:
+    def __init__(self, moving, m_dir, f_dir, loc):
         self.moving = False
         self.m_dir = []
         self.f_dir = ['V']
+        self.loc = (0, 0) 
 
-    def get_m(self):
-        if keys[pygame.K_DOWN] or keys[pygame.K_UP] or keys[pygame.K_LEFT] or keys[pygame.K_RIGHT]:
-            self.moving = True
+    def set_m(self):
+        for event in pygame.event.get():
+            if event.type == pygame.key.KEYDOWN:
+                self.moving = True
 
-    def get_m_dir(self):
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_DOWN]:
-            self.m_dir.append('V')
-        if keys[pygame.K_UP]:
-            self.m_dir.append('^')
-        if keys[pygame.K_LEFT]:
-            self.m_dir.append('<')
-        if keys[pygame.K_RIGHT]:
-            self.m_dir.append('>')
+    def get_m(self, screen):
+        pygame.blit
     
-    def get_f_dir(self):
-        events = pygame.event.get()
-        for event in events:
-            if event.type == pygame.event.KEY_DOWN:
-                self.f_dir = []
-                if event.key in key_dict:
-                    self.f_dir.append(event.key)
+
+chara = mc(False, [], [], (0, 0))
 
 run = True
-chara = mc()
 
 while run:
 
@@ -49,9 +38,8 @@ while run:
         if event.type == pygame.QUIT:
             done = True
 
-    keys = pygame.key.get_pressed()
 
-    chara.get_m()
+    chara.set_m()
     print(chara.moving)
 
     clock.tick(5)
