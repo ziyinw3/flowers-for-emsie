@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./working/test files/FFE"
+    ]
+}
