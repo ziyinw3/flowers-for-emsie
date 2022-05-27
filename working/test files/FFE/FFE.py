@@ -37,7 +37,7 @@ class FFE:
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)
 
-        self.mc_ss.mc_sprites[0].blitme()
+        self.mc_ss.mc_list.blitme()
         
         pygame.display.flip()
 

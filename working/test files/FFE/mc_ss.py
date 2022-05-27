@@ -24,16 +24,7 @@ class mc_sprite_set:
         filename = 'working\\test files\FFE\images\mc_m_sheet.png'
         mc_sprite_ss = SpriteSheet(filename)
 
-        # create an idle d1
-        mc_d1_rect = (0, 0, 41, 41)
-        mc_d1_img = mc_sprite_ss.image_at(mc_d1_rect)
-
-        mc_d1 = mc_sprite(self.FFE)
-        mc_d1.image = mc_d1_img
-        mc_d1.name = 'mc_d1'
-        mc_d1.f_dir = 'V'
-        mc_d1.m_dir = 'O'
-        self.mc_sprites.append(mc_d1)
+        
 
 class mc_sprite:
     """Represents a sprite image."""
