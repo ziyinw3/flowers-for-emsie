@@ -2,6 +2,8 @@
 
 from spritesheet import SpriteSheet
 
+from ss_storages import coords_di
+
 class McSpriteSet:
     """Represents a set of mc sprites.
     Each piece is an object of the McSprite class.
@@ -14,19 +16,20 @@ class McSpriteSet:
         self.pieces = []
         self._load_pieces()
 
-    def _load_pieces(self):
-        filename = 'images/chess_pieces.bmp'
-        piece_ss = SpriteSheet(filename)
-
+    def _load_pieces(self, lis):
+        filename = 'images/mc_ss.png'
+        mc_ss = SpriteSheet(filename)
+        lis = coords_di
+        
         # Load all piece images.
-        piece_images = piece_ss.load_grid_images(2, 6, x_margin=64,
-        x_padding=72, y_margin=68, y_padding=48)
-
+        piece_images = mc_ss.images_at(self, lis)
+        i = 0
         # Create a new McSprite object for every image.
         for image in piece_images:
-            piece = McSprite(self.FFE_game)
-            piece.image = image
-            self.pieces.append(piece)
+            i += 1
+            sprite = McSprite(self.FFE_game)
+            sprite.image = image
+            self.pieces.append(sprite)
 
 
 class McSprite:
@@ -34,9 +37,13 @@ class McSprite:
 
     def __init__(self, FFE_game):
         """Initialize attributes to represent a chess piece."""
-        self.image = None
-        self.name = ''
-        self.color = ''
+
+        for i in range(0, 13):
+            mc_sprite = McSprite(self.FFE_game)
+            mc_sprite.name = "di_" + str(i)
+            mc_sprite.facing = 'V'
+            mc_sprite.moving = False
+            mc_sprite.f_count = i
 
         self.screen = FFE_game.screen
 
