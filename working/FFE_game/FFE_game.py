@@ -1,5 +1,6 @@
 """ main game file"""
 
+from ast import walk
 import sys
 
 import pygame
@@ -45,6 +46,7 @@ class FFEGame:
     def _attributes_update(self):
         ks_listener()
         loc_listener()
+        walk_counter()
 
 
 if __name__ == '__main__':
