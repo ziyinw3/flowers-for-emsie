@@ -33,3 +33,26 @@ def loc_listener():
         loc[1] += vel
     if states[3] == True:
         loc[1] -= vel
+
+def walk_counter():
+    # find first item in states that is true
+    for item in states:
+        if item == False:
+            continue
+        face_dir = states.index(item)
+        if walkcount < 16:
+            walkcount += 1
+        elif walkcount == 17:
+            walkcount = 1
+    if standcount < 12:
+        standcount += 1
+    elif standcount == 13:
+        standcount = 1
+    walkcount = 0
+    face_dir = 3
+
+# def blit_mc():
+
+
+
+
