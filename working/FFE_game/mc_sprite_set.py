@@ -23,10 +23,8 @@ class McSpriteSet:
         
         # Load all piece images.
         piece_images = mc_ss.images_at(self, lis)
-        i = 0
         # Create a new McSprite object for every image.
         for image in piece_images:
-            i += 1
             sprite = McSprite(self.FFE_game)
             sprite.image = image
             self.pieces.append(sprite)
