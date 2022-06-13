@@ -3,6 +3,8 @@ pygame.init()
 
 from game_settings import *
 
+from mc_sprite_set import *
+
 
 # attributes update
 
@@ -48,6 +50,7 @@ def walk_counter():
             walkcount += 1
         elif walkcount == 17:
             walkcount = 1
+        standcount = 0
     if idle == True:
         if standcount < 12:
             standcount += 1
@@ -60,9 +63,9 @@ def walk_counter():
 
 def blit_mc():
     if idle == True:
-        self.screen.blit(mc_di[standcount], loc)
-    if idle == False:
-        self.screen.blit(mc_dw[walkcount], loc)
+        self.screen.blit(mc_i3[standcount], loc)
+    # if idle == False:
+    #     self.screen.blit(mc_w + str(face_dir)[walkcount], loc)
 
 
 

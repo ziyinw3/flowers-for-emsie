@@ -1,6 +1,5 @@
 """ main game file"""
 
-from ast import walk
 import sys
 
 import pygame
@@ -22,7 +21,7 @@ class FFEGame:
 
         self.screen = pygame.display.set_mode(
                 (self.settings.screen_width, self.settings.screen_height))
-        pygame.display.set_caption("flowers for emsiey")
+        pygame.display.set_caption("flowers for emsie")
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -30,6 +29,7 @@ class FFEGame:
             self._check_events()
             self._attributes_update()
             self._update_screen()
+            clock.tick(30)
 
     def _check_events(self):
         for event in pygame.event.get():
@@ -41,6 +41,7 @@ class FFEGame:
 
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)
+        blit_mc()
         pygame.display.flip()
     
     def _attributes_update(self):

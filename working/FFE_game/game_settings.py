@@ -13,4 +13,5 @@ face_dir = 3
 walkcount = 0
 standcount = 0
 
+# walking states, left right up down
 states = [False, False, False, False]
