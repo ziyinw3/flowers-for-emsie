@@ -66,11 +66,11 @@ def walk_counter():
 
 # update screen
 
-def blit_mc():
+def blit_mc(scr):
     if idle == True:
-        self.screen.blit(mc_i3[standcount], loc)
+        scr.blit(mc_i3[standcount], loc)
     if idle == False:
-        self.screen.blit(mc_w3[walkcount], loc)
+        scr.blit(mc_w3[walkcount], loc)
 
 
 

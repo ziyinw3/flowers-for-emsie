@@ -29,7 +29,7 @@ class FFEGame:
             self._check_events()
             self._attributes_update()
             self._update_screen()
-            clock.tick(30)
+            clock.tick(10)
 
     def _check_events(self):
         for event in pygame.event.get():
@@ -41,7 +41,7 @@ class FFEGame:
 
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)
-        blit_mc()
+        blit_mc(self.screen)
         pygame.display.flip()
     
     def _attributes_update(self):

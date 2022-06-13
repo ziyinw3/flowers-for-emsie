@@ -3,7 +3,7 @@ import pygame
 pygame.init()
 
 clock = pygame.time.Clock()
-loc = (0, 0)
+loc = (100, 150)
 vel = 10
 idle = True
 
