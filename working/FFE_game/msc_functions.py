@@ -54,11 +54,15 @@ def walk_counter():
         elif standcount == 13:
             standcount = 1
         walkcount = 0
-        face_dir = 3
+    face_dir = 3
 
 # update screen
 
-# def blit_mc():
+def blit_mc():
+    if idle == True:
+        self.screen.blit(mc_di[standcount], loc)
+    if idle == False:
+        self.screen.blit(mc_dw[walkcount], loc)
 
 
 

@@ -7,8 +7,8 @@ loc = (0, 0)
 vel = 10
 idle = True
 
-face_dir = 0
-# left
+face_dir = 3
+# down
 
 walkcount = 0
 standcount = 0
