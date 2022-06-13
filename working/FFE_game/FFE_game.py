@@ -6,7 +6,7 @@ import pygame
 
 from settings import Settings
 
-from mc_sprite_set import McSpriteSet
+# from mc_sprite_set import McSpriteSet
 
 from msc_functions import *
 

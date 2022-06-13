@@ -3,7 +3,9 @@ pygame.init()
 
 from game_settings import *
 
-from mc_sprite_set import *
+# from mc_sprite_set import *
+
+from spritesheet import *
 
 
 # attributes update
@@ -41,6 +43,9 @@ def loc_listener():
 
 def walk_counter():
     # find first item in states that is true
+    global idle
+    global standcount
+    global walkcount
     for item in states:
         if item == True:
             face_dir = states.index(item)
@@ -64,8 +69,8 @@ def walk_counter():
 def blit_mc():
     if idle == True:
         self.screen.blit(mc_i3[standcount], loc)
-    # if idle == False:
-    #     self.screen.blit(mc_w + str(face_dir)[walkcount], loc)
+    if idle == False:
+        self.screen.blit(mc_w3[walkcount], loc)
 
 
 
