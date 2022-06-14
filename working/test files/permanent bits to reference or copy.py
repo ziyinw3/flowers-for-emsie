@@ -13,7 +13,7 @@ clock = pygame.time.Clock()
 white = (225, 225, 225)
 
 (x, y) = (100, 100)
-vel = 2
+self.vel = 2
 
 left = False
 right = False

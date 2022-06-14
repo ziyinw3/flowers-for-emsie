@@ -116,7 +116,7 @@ clock = pygame.time.Clock()
 white = (225, 225, 225)
 
 (x, y) = (100, 100)
-vel = 3
+self.vel = 3
 
 left = False
 right = False
@@ -211,25 +211,25 @@ while run:
 
     if keys[pygame.K_DOWN]:
         last_pressed = pygame.K_DOWN
-        y += vel
+        y += self.vel
         down = True
         standcount = 0
 
     if keys[pygame.K_UP]:
         last_pressed = pygame.K_UP
-        y -= vel
+        y -= self.vel
         up = True
         standcount = 0
 
     if keys[pygame.K_LEFT]:
         last_pressed = pygame.K_LEFT
-        x -= vel
+        x -= self.vel
         left = True
         standcount = 0
 
     if keys[pygame.K_RIGHT]:
         last_pressed = pygame.K_RIGHT
-        x += vel
+        x += self.vel
         right = True
         standcount = 0            
 

@@ -3,15 +3,15 @@ import pygame
 pygame.init()
 
 clock = pygame.time.Clock()
-loc = (100, 150)
-vel = 10
-idle = True
+# self.loc = (100, 150)
+# self.vel = 10
+# idle = True
 
-face_dir = 3
+# face_dir = 3
 # down
 
 walkcount = 0
 standcount = 0
 
-# walking states, left right up down
-states = [False, False, False, False]
+# walking self.states, left right up down
+# self.states = [False, False, False, False]

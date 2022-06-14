@@ -10,7 +10,7 @@ class mc:
         self.moving = False
         self.m_dir = []
         self.f_dir = []
-        self.loc = (0, 0)
+        self.self.loc = (0, 0)
         self.speed = 4
         self.left_pressed = False
         self.right_pressed = False

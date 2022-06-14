@@ -6,9 +6,9 @@ import pygame
 
 from settings import Settings
 
-# from mc_sprite_set import McSpriteSet
-
 from msc_functions import *
+
+from game_settings import *
 
 
 class FFEGame:
@@ -29,7 +29,7 @@ class FFEGame:
             self._check_events()
             # self._attributes_update()
             self._update_screen()
-            print(states, (walkcount, standcount), loc)
+            print(self.states, (walkcount, standcount), self.loc)
             clock.tick(10)
 
     def _check_events(self):
@@ -39,13 +39,13 @@ class FFEGame:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     sys.exit()
-        ks_listener()
-        loc_listener()
-        walk_counter()
+        emsie.ks_listener()
+        emsie.loc_listener()
+        emsie.walk_counter()
 
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)
-        blit_mc(self.screen)
+        emsie.blit_mc(self.screen)
         pygame.display.flip()
     
     # def _attributes_update(self):
