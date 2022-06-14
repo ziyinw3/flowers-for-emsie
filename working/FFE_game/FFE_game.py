@@ -21,7 +21,8 @@ class FFEGame:
 
         self.screen = pygame.display.set_mode(
                 (self.settings.screen_width, self.settings.screen_height))
-        pygame.display.set_caption("flowers for emsie")
+        pygame.display.set_caption(self.settings.game_caption)
+        pygame.display.set_icon(self.settings.icon)
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -29,7 +30,8 @@ class FFEGame:
             self._check_events()
             self._attributes_update()
             self._update_screen()
-            clock.tick(10)
+            print (walkcount, standcount)
+            clock.tick(5)
 
     def _check_events(self):
         for event in pygame.event.get():
