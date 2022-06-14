@@ -51,16 +51,10 @@ def walk_counter():
             face_dir = states.index(item)
             idle = False
     if idle == False:    
-        if walkcount < 16:
-            walkcount += 1
-        elif walkcount == 17:
-            walkcount = 1
+        walkcount += 1
         standcount = 0
     if idle == True:
-        if standcount < 12:
-            standcount += 1
-        elif standcount == 13:
-            standcount = 1
+        standcount += 1
         walkcount = 0
     face_dir = 3
 
@@ -68,9 +62,9 @@ def walk_counter():
 
 def blit_mc(scr):
     if idle == True:
-        scr.blit(mc_i3[standcount], loc)
+        scr.blit(mc_i3[standcount % 12], loc)
     if idle == False:
-        scr.blit(mc_w3[walkcount], loc)
+        scr.blit(mc_w3[walkcount % 16], loc)
 
 
 
