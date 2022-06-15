@@ -57,6 +57,7 @@ class FFEGame:
                     emsie.states[2] = False
                 if event.key == pygame.K_DOWN:
                     emsie.states[3] = False
+        emsie.loc_listener()
         emsie.walk_counter()
 
     def _update_screen(self):

@@ -12,7 +12,7 @@ from spritesheet import *
 
 class MC:
     def __init__(self):
-        self.loc = (100, 150)
+        self.loc = [100, 150]
         self.states = [False, False, False, False]
         self.vel = 10
         self.face_dir = 3
@@ -48,16 +48,19 @@ class MC:
         if self.states[1] == True:
             self.loc[0] += self.vel
         if self.states[2] == True:
-            self.loc[1] += self.vel
-        if self.states[3] == True:
             self.loc[1] -= self.vel
+        if self.states[3] == True:
+            self.loc[1] += self.vel
 
     def walk_counter(self):
         # find first item in self.states that is true
-        for self.item in self.states:
-            if self.item == True:
-                self.face_dir = self.states.index(self.item)
-                self.idle = False
+        # set idle state
+        if self.states == [False, False, False, False]:
+            self.idle == True
+        else:
+            self.idle == False
+            self.face_dir = self.states.index(True)
+
         if self.idle == False:    
             self.walkcount += 1
             self.standcount = 0
@@ -68,14 +71,13 @@ class MC:
             self.standcount = 0
         if self.walkcount > 15:
             self.standcount = 0
-        self.face_dir = 3
 
     # update screen
 
     def blit_mc(self, scr):
-        if idle == True:
+        if self.idle == True:
             scr.blit(mc_i3[self.standcount], self.loc)
-        if idle == False:
+        if self.idle == False:
             scr.blit(mc_w3[self.walkcount], self.loc)
 
 # instantiate character class
