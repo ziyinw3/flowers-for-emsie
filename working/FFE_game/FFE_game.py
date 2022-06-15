@@ -27,8 +27,6 @@ class FFEGame:
             self._check_events()
             self._update_screen()
 
-            # testing
-            print(emsie.walkcount, emsie.standcount, (emsie.loc), emsie.face_dir, emsie.states, emsie.idle)
             self.settings.clock.tick(30)
 
     def _check_events(self):
@@ -60,7 +58,6 @@ class FFEGame:
             emsie.idle = False
         else:
             emsie.idle = True
-        emsie.ks_listener()
         emsie.walk_counter()
         emsie.loc_listener()
 

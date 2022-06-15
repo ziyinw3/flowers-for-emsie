@@ -10,7 +10,7 @@ class MC:
     def __init__(self):
         self.loc = [100, 150]
         self.states = [False, False, False, False]
-        self.vel = 5
+        self.vel = 4
         self.face_dir = 3
         self.idle = True
         self.img = mc_i3[0]
@@ -63,9 +63,9 @@ class MC:
         if self.idle == True:
             self.standcount += 1
             self.walkcount = 0
-        if self.standcount > 35:
+        if self.standcount > 47:
             self.standcount = 0
-        if self.walkcount > 47:
+        if self.walkcount > 63:
             self.walkcount = 0
 
     # update screen
@@ -73,10 +73,23 @@ class MC:
     def blit_mc(self, scr):
         if self.idle == True:
             if self.face_dir == 3:
-                scr.blit(mc_i3[self.standcount // 3], self.loc)
+                scr.blit(mc_i3[self.standcount // 4], self.loc)
+            if self.face_dir == 2:
+                scr.blit(mc_i2[self.standcount // 4], self.loc)
+            if self.face_dir == 1:
+                scr.blit(mc_i1[self.standcount // 4], self.loc)
+            if self.face_dir == 0:
+                scr.blit(mc_i0[self.standcount // 4], self.loc)    
         if self.idle == False:
             if self.face_dir == 3:
-                scr.blit(mc_w3[self.walkcount // 3], self.loc)
+                scr.blit(mc_w3[self.walkcount // 4], self.loc)
+            if self.face_dir == 2:
+                scr.blit(mc_w2[self.walkcount // 4], self.loc)
+            if self.face_dir == 1:
+                scr.blit(mc_w1[self.walkcount // 4], self.loc)
+            if self.face_dir == 0:
+                scr.blit(mc_w0[self.walkcount // 4], self.loc)
+            
 
 # instantiate character class
 emsie = MC()
