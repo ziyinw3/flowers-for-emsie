@@ -6,7 +6,7 @@ import pygame
 
 from settings import Settings
 
-from msc_functions import *
+from msc_functions import MC, emsie
 
 from game_settings import *
 
@@ -27,10 +27,11 @@ class FFEGame:
         """Start the main loop for the game."""
         while True:
             self._check_events()
-            # self._attributes_update()
             self._update_screen()
-            print(emsie.states, (walkcount, standcount), emsie.loc)
-            clock.tick(10)
+
+            # testing
+            print(emsie.walkcount, emsie.standcount, emsie.face_dir)
+            clock.tick(5)
 
     def _check_events(self):
         for event in pygame.event.get():
@@ -40,18 +41,12 @@ class FFEGame:
                 if event.key == pygame.K_q:
                     sys.exit()
         emsie.ks_listener()
-        emsie.loc_listener()
         emsie.walk_counter()
 
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)
         emsie.blit_mc(self.screen)
         pygame.display.flip()
-    
-    # def _attributes_update(self):
-    #     ks_listener()
-    #     loc_listener()
-    #     walk_counter()
 
 
 if __name__ == '__main__':

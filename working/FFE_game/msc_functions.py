@@ -11,12 +11,15 @@ from spritesheet import *
 # attributes update
 
 class MC:
-    def __init__(self, loc, states):
+    def __init__(self):
         self.loc = (100, 150)
         self.states = [False, False, False, False]
         self.vel = 10
         self.face_dir = 3
         self.idle = True
+        self.img = mc_i3[0]
+        self.walkcount = 0
+        self.standcount = 0
 
     def ks_listener(self):
         for event in pygame.event.get():
@@ -51,32 +54,32 @@ class MC:
 
     def walk_counter(self):
         # find first item in self.states that is true
-        global idle
-        global standcount
-        global walkcount
-        global face_dir
         for item in self.states:
             if item == True:
-                face_dir = self.states.index(item)
-                idle = False
-        if idle == False:    
-            walkcount += 1
-            standcount = 0
-        if idle == True:
-            standcount += 1
-            walkcount = 0
-        face_dir = 3
+                self.face_dir = self.states.index(item)
+                self.idle = False
+        if self.idle == False:    
+            self.walkcount += 1
+            self.standcount = 0
+        if self.idle == True:
+            self.standcount += 1
+            self.walkcount = 0
+        if self.standcount > 11:
+            self.standcount = 0
+        if self.walkcount > 15:
+            self.standcount = 0
+        self.face_dir = 3
 
     # update screen
 
     def blit_mc(self, scr):
         if idle == True:
-            scr.blit(mc_i3[standcount % 12], self.loc)
+            scr.blit(mc_i3[self.standcount], self.loc)
         if idle == False:
-            scr.blit(mc_w3[walkcount % 16], self.loc)
+            scr.blit(mc_w3[self.walkcount], self.loc)
 
 
-emsie = MC((100, 150), [False, False, False, False])
+emsie = MC()
 
 
 
