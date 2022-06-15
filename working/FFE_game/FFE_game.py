@@ -6,7 +6,7 @@ import pygame
 
 from settings import Settings
 
-from msc_functions import MC, emsie
+from msc_functions import emsie
 
 
 class FFEGame:
@@ -28,8 +28,8 @@ class FFEGame:
             self._update_screen()
 
             # testing
-            print(emsie.walkcount, emsie.standcount, emsie.face_dir, emsie.states, emsie.idle)
-            self.settings.clock.tick(10)
+            print(emsie.walkcount, emsie.standcount, (emsie.loc), emsie.face_dir, emsie.states, emsie.idle)
+            self.settings.clock.tick(30)
 
     def _check_events(self):
         for event in pygame.event.get():
@@ -55,8 +55,14 @@ class FFEGame:
                     emsie.states[2] = False
                 if event.key == pygame.K_DOWN:
                     emsie.states[3] = False
-        emsie.loc_listener()
+        
+        if True in emsie.states:
+            emsie.idle = False
+        else:
+            emsie.idle = True
+        emsie.ks_listener()
         emsie.walk_counter()
+        emsie.loc_listener()
 
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)

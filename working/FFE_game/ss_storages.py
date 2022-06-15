@@ -35,3 +35,7 @@ for o in range(0, 13):
 
 for p in range(0, 17):
     coords_w0.append((i * 41, 41 * 7, i * 41 + 41, 41 * 8))
+
+
+print(coords_i3, coords_i2, coords_i1, coords_i0)
+print(coords_w3, coords_w2, coords_w1, coords_w0)
