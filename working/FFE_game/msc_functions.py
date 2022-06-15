@@ -54,9 +54,9 @@ class MC:
 
     def walk_counter(self):
         # find first item in self.states that is true
-        for item in self.states:
-            if item == True:
-                self.face_dir = self.states.index(item)
+        for self.item in self.states:
+            if self.item == True:
+                self.face_dir = self.states.index(self.item)
                 self.idle = False
         if self.idle == False:    
             self.walkcount += 1
@@ -78,7 +78,7 @@ class MC:
         if idle == False:
             scr.blit(mc_w3[self.walkcount], self.loc)
 
-
+# instantiate character class
 emsie = MC()
 
 

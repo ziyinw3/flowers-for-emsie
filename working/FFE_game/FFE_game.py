@@ -30,7 +30,7 @@ class FFEGame:
             self._update_screen()
 
             # testing
-            print(emsie.walkcount, emsie.standcount, emsie.face_dir)
+            print(emsie.walkcount, emsie.standcount, emsie.face_dir, emsie.states)
             clock.tick(5)
 
     def _check_events(self):
@@ -40,7 +40,23 @@ class FFEGame:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     sys.exit()
-        emsie.ks_listener()
+                if event.key == pygame.K_LEFT:
+                    emsie.states[0] = True
+                if event.key == pygame.K_RIGHT:
+                    emsie.states[1] = True
+                if event.key == pygame.K_UP:
+                    emsie.states[2] = True
+                if event.key == pygame.K_DOWN:
+                    emsie.states[3] = True
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT:
+                    emsie.states[0] = False
+                if event.key == pygame.K_RIGHT:
+                    emsie.states[1] = False
+                if event.key == pygame.K_UP:
+                    emsie.states[2] = False
+                if event.key == pygame.K_DOWN:
+                    emsie.states[3] = False
         emsie.walk_counter()
 
     def _update_screen(self):
