@@ -8,8 +8,6 @@ from settings import Settings
 
 from msc_functions import MC, emsie
 
-from game_settings import *
-
 
 class FFEGame:
     """Overall class to manage game assets and behavior."""
@@ -30,8 +28,8 @@ class FFEGame:
             self._update_screen()
 
             # testing
-            print(emsie.walkcount, emsie.standcount, emsie.face_dir, emsie.states)
-            clock.tick(5)
+            print(emsie.walkcount, emsie.standcount, emsie.face_dir, emsie.states, emsie.idle)
+            self.settings.clock.tick(10)
 
     def _check_events(self):
         for event in pygame.event.get():

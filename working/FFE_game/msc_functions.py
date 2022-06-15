@@ -1,10 +1,6 @@
 import pygame
 pygame.init()
 
-from game_settings import *
-
-# from mc_sprite_set import *
-
 from spritesheet import *
 
 
@@ -57,7 +53,7 @@ class MC:
         # set idle state
         if self.states == [False, False, False, False]:
             self.idle == True
-        else:
+        elif True in self.states:
             self.idle == False
             self.face_dir = self.states.index(True)
 

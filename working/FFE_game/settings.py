@@ -8,3 +8,4 @@ class Settings:
         self.game_caption = "flowers for emsie"
 
         self.icon = pygame.image.load('FFE_game\images\icon.png')
+        self.clock = pygame.time.Clock()
