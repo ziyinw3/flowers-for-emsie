@@ -5,7 +5,7 @@ pygame.init()
 clock = pygame.time.Clock()
 # self.loc = (100, 150)
 # self.vel = 10
-# idle = True
+idle = True
 
 # face_dir = 3
 # down

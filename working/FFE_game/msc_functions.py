@@ -54,6 +54,7 @@ class MC:
         global idle
         global standcount
         global walkcount
+        global face_dir
         for item in self.states:
             if item == True:
                 face_dir = self.states.index(item)

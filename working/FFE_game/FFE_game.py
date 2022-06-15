@@ -29,7 +29,7 @@ class FFEGame:
             self._check_events()
             # self._attributes_update()
             self._update_screen()
-            print(self.states, (walkcount, standcount), self.loc)
+            print(emsie.states, (walkcount, standcount), emsie.loc)
             clock.tick(10)
 
     def _check_events(self):
