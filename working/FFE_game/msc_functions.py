@@ -39,13 +39,13 @@ class MC:
                     self.states[3] = False
 
     def loc_listener(self):
-        if self.states[0] == True:
+        if self.states[0] == True and self.loc[0] - self.vel > 0:
             self.loc[0] -= self.vel
-        if self.states[1] == True:
+        if self.states[1] == True and self.loc[0] + self.vel < 599:
             self.loc[0] += self.vel
-        if self.states[2] == True:
+        if self.states[2] == True and self.loc[1] - self.vel > 0:
             self.loc[1] -= self.vel
-        if self.states[3] == True:
+        if self.states[3] == True and self.loc[1] + self.vel < 439:
             self.loc[1] += self.vel
 
     def walk_counter(self):

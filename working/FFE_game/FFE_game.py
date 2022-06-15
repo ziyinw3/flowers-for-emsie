@@ -26,7 +26,7 @@ class FFEGame:
         while True:
             self._check_events()
             self._update_screen()
-
+            print(emsie.loc)
             self.settings.clock.tick(30)
 
     def _check_events(self):

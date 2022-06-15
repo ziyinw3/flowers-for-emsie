@@ -37,4 +37,4 @@ for i in range(0, 17):
     coords_w0.append((i * 41, 41 * 7, i * 41 + 41, 41 * 8))
 
 
-print(coords_w3)
+# print(coords_w3)
