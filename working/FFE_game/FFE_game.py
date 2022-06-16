@@ -44,6 +44,8 @@ class FFEGame:
                     emsie.states[2] = True
                 if event.key == pygame.K_DOWN:
                     emsie.states[3] = True
+                if event.key == pygame.K_z:
+                    emsie.vel = 10
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT:
                     emsie.states[0] = False
@@ -53,6 +55,8 @@ class FFEGame:
                     emsie.states[2] = False
                 if event.key == pygame.K_DOWN:
                     emsie.states[3] = False
+                if event.key == pygame.K_z:
+                    emsie.vel = 4
         
         if True in emsie.states:
             emsie.idle = False
