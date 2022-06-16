@@ -1,33 +1,32 @@
 """ main game file"""
 
-import sys
-
-import pygame
+import sys, pygame
 
 from settings import Settings
 
 from msc_functions import emsie
 
+pygame.init()
+settings = Settings()
+screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
+pygame.display.set_caption(settings.game_caption)
+pygame.display.set_icon(settings.icon)
 
 class FFEGame:
     """Overall class to manage game assets and behavior."""
-
+    # initializer
     def __init__(self):
         """Initialize the game, and create resources."""
-        pygame.init()
-        self.settings = Settings()
-        self.screen = pygame.display.set_mode(
-                (self.settings.screen_width, self.settings.screen_height))
-        pygame.display.set_caption(self.settings.game_caption)
-        pygame.display.set_icon(self.settings.icon)
 
+    # main game loop
     def run_game(self):
         """Start the main loop for the game."""
+        
         while True:
             self._check_events()
             self._update_screen()
             print(emsie.loc)
-            self.settings.clock.tick(30)
+            settings.clock.tick(30)
 
     def _check_events(self):
         for event in pygame.event.get():
@@ -66,10 +65,9 @@ class FFEGame:
         emsie.loc_listener()
 
     def _update_screen(self):
-        self.screen.fill(self.settings.bg_color)
-        emsie.blit_mc(self.screen)
+        screen.fill(settings.bg_color)
+        emsie.blit_mc(screen)
         pygame.display.flip()
-
 
 if __name__ == '__main__':
     FFE_game = FFEGame()
