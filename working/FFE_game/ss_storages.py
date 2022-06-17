@@ -45,3 +45,13 @@ for i in range(0, 6):
     coords_mm.append((i * 640, 0, i * 640 + 640, 480))
 
 # print (coords_mm)
+
+coords_buttonu = []
+
+for i in range(0, 3):
+    coords_buttonu.append((i * 64, 0, i * 64 + 64, 26))
+
+coords_buttond = []
+
+for i in range(0, 3):
+    coords_buttond.append((i * 65, 26, i * 65 + 64, 26 * 2))

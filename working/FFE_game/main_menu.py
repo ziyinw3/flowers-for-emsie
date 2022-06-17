@@ -3,19 +3,20 @@ from settings import Settings
 
 import pygame
 
-start_btn = pygame.image.load()
-logo = pygame.image.load()
+from spritesheet import mm, buttonu, buttond, cursor, cursor_rect
 
 class MainMenu:
     def __init__(self, screen):
-    # self.bg = a set of images for animated menu
-    # self.screen = screen
-    self.btn = (self.width/2 - start_btn.get_width()/2, 350, start_btn.get_width(), start_btn.get_height())
+        self.screen = screen
+        self.clock = pygame.time.Clock()
 
     def run(self):
         run = True
         while run:
-             for event in pygame.event.get():
+            self.clock.tick(2)
+            for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
+            cursor_rect.center = pygame.mouse.get_pos()  # update position 
+            self.screen.blit(cursor, cursor_rect)
 

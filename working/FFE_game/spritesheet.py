@@ -19,6 +19,7 @@ class SpriteSheet:
 
 ss = SpriteSheet('FFE_game\images\mc_ss.png')
 menu_ss = SpriteSheet('FFE_game\images\menu_ss.png')
+button_ss = SpriteSheet('FFE_game\images\\buttons_ss.png')
 
 # lists of sprites in order based on idle and direction
 
@@ -52,6 +53,21 @@ mm = []
 
 menu_ss.load_strip(coords_mm, mm, 640, 480)
 
+buttonu = []
+
+button_ss.load_strip(coords_buttonu, buttonu, 64, 26)
+
+buttond = []
+
+button_ss.load_strip(coords_buttond, buttond, 64, 26)
+
+
+
+#-------------------------
+
+cursor = pygame.image.load('FFE_game\images\cursor.png')
+
+cursor_rect = cursor.get_rect()
 #-------------------------
 
 # pygame.init()
@@ -77,5 +93,5 @@ menu_ss.load_strip(coords_mm, mm, 640, 480)
 #         i = 0
 #     # screen.fill(white)
 #     clock.tick(1)
-#     screen.blit(mm[i], (0, 0))
+#     screen.blit(cursor, (0, 0))
 #     pygame.display.flip()
