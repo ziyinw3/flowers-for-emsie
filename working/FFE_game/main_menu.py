@@ -22,8 +22,19 @@ class MainMenu:
                 self.mm_count += 1
             else:
                 self.mm_count = 0
-            self.screen.blit(mm[self.mm_count // 30], (0, 0))
-            cursor_rect.center = pygame.mouse.get_pos()  # update position 
-            self.screen.blit(cursor, cursor_rect)
-            pygame.display.flip()
+            self.draw()
 
+    def draw(self):        
+        self.screen.blit(mm[self.mm_count // 30], (0, 0))
+        cursor_rect.center = pygame.mouse.get_pos()  # update position 
+        self.screen.blit(cursor, cursor_rect)
+        pygame.display.flip()
+
+class Button:
+    def __init__(self, imgu, imgd, pos):
+        self.imgu = imgu
+        self.imgd = imgd
+        self.rect = pygame.img.get_rect()
+        self.pos = pos
+    def hover(self):
+        return True if self.rect.collidepoint(pygame.mouse.get_pos()) else False
