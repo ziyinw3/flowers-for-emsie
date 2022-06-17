@@ -55,11 +55,11 @@ menu_ss.load_strip(coords_mm, mm, 640, 480)
 
 buttonu = []
 
-button_ss.load_strip(coords_buttonu, buttonu, 64, 26)
+button_ss.load_strip(coords_buttonu, buttonu, 128, 52)
 
 buttond = []
 
-button_ss.load_strip(coords_buttond, buttond, 64, 26)
+button_ss.load_strip(coords_buttond, buttond, 128, 52)
 
 
 
