@@ -8,7 +8,7 @@ clock = pygame.time.Clock()
 screen = pygame.display.set_mode((200,200))
 pygame.display.set_caption("test with keydown combo")
 
-key_dict = {K_DOWN:'V', K_UP:'^', K_LEFT:'<', K_RIGHT:'>'}
+key_dict = {K_s:'V', K_w:'^', K_a:'<', K_d:'>'}
 
 # character class
 

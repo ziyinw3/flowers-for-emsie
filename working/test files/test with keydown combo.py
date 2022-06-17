@@ -8,7 +8,7 @@ pygame.display.set_caption("test with keydown combo")
 
 clock = pygame.time.Clock()
 
-last_pressed = pygame.K_DOWN
+last_pressed = pygame.K_s
 key_list = []
 keys_pressed = []
 
@@ -20,9 +20,9 @@ def direction():
 
     for event in events:
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_s:
                 print("down is pressed")
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_w:
                 key_list.append("^")
                 print("up is pressed")
 
@@ -36,13 +36,13 @@ def direction_state():
         if event.type == pygame.KEYDOWN:
             keys = pygame.key.get_pressed()
             direction = []
-            if keys[pygame.K_DOWN]:
+            if keys[pygame.K_s]:
                 direction.append('V')
-            if keys[pygame.K_UP]:
+            if keys[pygame.K_w]:
                 direction.append('^')
-            if keys[pygame.K_LEFT]:
+            if keys[pygame.K_a]:
                 direction.append('<')
-            if keys[pygame.K_RIGHT]:
+            if keys[pygame.K_d]:
                 direction.append('>')
     print(direction)      
 
@@ -58,13 +58,13 @@ while run:
         # if event.type == pygame.KEYDOWN:
         #     keys = pygame.key.get_pressed()
         #     direction = []
-        #     if keys[pygame.K_DOWN]:
+        #     if keys[pygame.K_s]:
         #         direction.append('V')
-        #     if keys[pygame.K_UP]:
+        #     if keys[pygame.K_w]:
         #         direction.append('^')
-        #     if keys[pygame.K_LEFT]:
+        #     if keys[pygame.K_a]:
         #         direction.append('<')
-        #     if keys[pygame.K_RIGHT]:
+        #     if keys[pygame.K_d]:
         #         direction.append('>')
     direction_state()
     

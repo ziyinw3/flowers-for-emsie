@@ -70,28 +70,28 @@ cursor = pygame.image.load('FFE_game\images\cursor.png')
 cursor_rect = cursor.get_rect()
 #-------------------------
 
-# pygame.init()
+pygame.init()
 
-# size = (640, 480)
-# white = (225, 225, 225)
-# clock = pygame.time.Clock()
-# FPS = 60
-# screen = pygame.display.set_mode(size)
-# pygame.display.set_caption("Sprite Sheet Tests")
+size = (640, 480)
+white = (225, 225, 225)
+clock = pygame.time.Clock()
+FPS = 60
+screen = pygame.display.set_mode(size)
+pygame.display.set_caption("Sprite Sheet Tests")
 
-# i = 0
+i = 0
 
-# while True:
-#     for event in pygame.event.get():
-#             if event.type == pygame.QUIT:
-#                 sys.exit()
-#             elif event.type == pygame.KEYDOWN:
-#                 if event.key == pygame.K_q:
-#                     sys.exit()
-#     i += 1
-#     if i > 5:
-#         i = 0
-#     # screen.fill(white)
-#     clock.tick(1)
-#     screen.blit(cursor, (0, 0))
-#     pygame.display.flip()
+while True:
+    for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_q:
+                    sys.exit()
+    i += 1
+    if i > 11:
+        i = 0
+    screen.fill(white)
+    clock.tick(1)
+    screen.blit(mc_i1[i], (0, 0))
+    pygame.display.flip()

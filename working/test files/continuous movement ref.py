@@ -72,22 +72,22 @@ while True:
             pygame.quit()
             sys.exit()
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
+            if event.key == pygame.K_a:
                 player.left_pressed = True
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_d:
                 player.right_pressed = True
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_w:
                 player.up_pressed = True
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_s:
                 player.down_pressed = True
         if event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT:
+            if event.key == pygame.K_a:
                 player.left_pressed = False
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_d:
                 player.right_pressed = False
-            if event.key == pygame.K_UP:
+            if event.key == pygame.K_w:
                 player.up_pressed = False
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_s:
                 player.down_pressed = False
         
     #Draw

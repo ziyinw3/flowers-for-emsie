@@ -123,7 +123,7 @@ right = False
 up = False
 down = False
 
-last_pressed = pygame.K_DOWN
+last_pressed = pygame.K_s
 
 events = pygame.event.get()
 
@@ -138,13 +138,13 @@ def direction_state():
         if event.type == pygame.KEYDOWN:
             keys_dir = pygame.key.get_pressed()
             direction = []
-            if keys_dir[pygame.K_DOWN]:
+            if keys_dir[pygame.K_s]:
                 direction.append('V')
-            if keys_dir[pygame.K_UP]:
+            if keys_dir[pygame.K_w]:
                 direction.append('^')
-            if keys_dir[pygame.K_LEFT]:
+            if keys_dir[pygame.K_a]:
                 direction.append('<')
-            if keys_dir[pygame.K_RIGHT]:
+            if keys_dir[pygame.K_d]:
                 direction.append('>')
     print(direction)  
 
@@ -184,14 +184,14 @@ def updateFrame():
         if standcount >= 48:
             standcount = 1
         screen.fill(white)
-        if last_pressed == pygame.K_UP:
+        if last_pressed == pygame.K_w:
             screen.blit(u_sprites[standcount // 4], (x, y))
-        elif last_pressed == pygame.K_LEFT:
+        elif last_pressed == pygame.K_a:
             screen.blit(l_sprites[standcount // 4], (x, y))
-        elif last_pressed == pygame.K_RIGHT:
+        elif last_pressed == pygame.K_d:
             screen.blit(r_sprites[standcount // 4], (x, y))
         else:
-            last_pressed == pygame.K_DOWN
+            last_pressed == pygame.K_s
             screen.blit(d_sprites[standcount // 4], (x, y))
 
     # print(walkcount, standcount)
@@ -209,26 +209,26 @@ while run:
 
     keys = pygame.key.get_pressed()
 
-    if keys[pygame.K_DOWN]:
-        last_pressed = pygame.K_DOWN
+    if keys[pygame.K_s]:
+        last_pressed = pygame.K_s
         y += self.vel
         down = True
         standcount = 0
 
-    if keys[pygame.K_UP]:
-        last_pressed = pygame.K_UP
+    if keys[pygame.K_w]:
+        last_pressed = pygame.K_w
         y -= self.vel
         up = True
         standcount = 0
 
-    if keys[pygame.K_LEFT]:
-        last_pressed = pygame.K_LEFT
+    if keys[pygame.K_a]:
+        last_pressed = pygame.K_a
         x -= self.vel
         left = True
         standcount = 0
 
-    if keys[pygame.K_RIGHT]:
-        last_pressed = pygame.K_RIGHT
+    if keys[pygame.K_d]:
+        last_pressed = pygame.K_d
         x += self.vel
         right = True
         standcount = 0            

@@ -20,7 +20,7 @@ right = False
 up = False
 down = False
 
-last_pressed = pygame.K_DOWN
+last_pressed = pygame.K_s
 
 
 # mass upload sprites and put into list

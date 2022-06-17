@@ -78,28 +78,28 @@ while not gameQuit:
     # continous walk ----------------------------------------------------------------------------------------------------------------------
     key_state = pygame.key.get_pressed()
         
-    if key_state[pygame.K_LEFT]:
+    if key_state[pygame.K_a]:
         screen.fill(white)
         screen.blit(mc_l, (pos_x, pos_y))
         pos_x = pos_x - mc_speed
         mc_cur = mc_l
         pygame.display.update()
 
-    if key_state[pygame.K_RIGHT]:
+    if key_state[pygame.K_d]:
         screen.fill(white)
         screen.blit(mc_r, (pos_x, pos_y))
         pos_x = pos_x + mc_speed
         mc_cur = mc_r
         pygame.display.update()
 
-    if key_state[pygame.K_UP]:
+    if key_state[pygame.K_w]:
         screen.fill(white)
         screen.blit(u_sprites.get('mc_u1'), (pos_x, pos_y))
         pos_y = pos_y - mc_speed
         mc_cur = u_sprites.get('mc_u1')
         pygame.display.update()
 
-    if key_state[pygame.K_DOWN]:
+    if key_state[pygame.K_s]:
         screen.fill(white)
         screen.blit(d_sprites.get('mc_d1'), (pos_x, pos_y))
         pos_y = pos_y + mc_speed

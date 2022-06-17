@@ -35,26 +35,28 @@ class FFEGame:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     sys.exit()
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_a:
                     emsie.states[0] = True
-                if event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_d:
                     emsie.states[1] = True
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_w:
                     emsie.states[2] = True
-                if event.key == pygame.K_DOWN:
+                if event.key == pygame.K_s:
                     emsie.states[3] = True
-                if event.key == pygame.K_z:
-                    emsie.vel = 10
             elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_a:
                     emsie.states[0] = False
-                if event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_d:
                     emsie.states[1] = False
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_w:
                     emsie.states[2] = False
-                if event.key == pygame.K_DOWN:
+                if event.key == pygame.K_s:
                     emsie.states[3] = False
-                if event.key == pygame.K_z:
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 3:
+                    emsie.vel = 10
+            elif event.type == pygame.MOUSEBUTTONUP:
+                if event.button == 3:
                     emsie.vel = 4
         
         if True in emsie.states:
