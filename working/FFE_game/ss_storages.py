@@ -38,3 +38,10 @@ for i in range(0, 17):
 
 
 # print(coords_w3)
+
+coords_mm = []
+
+for i in range(0, 6):
+    coords_mm.append((i * 640, 0, i * 640 + 640, 480))
+
+# print (coords_mm)

@@ -11,39 +11,46 @@ class SpriteSheet:
         """Load the sheet."""
         self.filename = filename
         self.spritesheet = pygame.image.load(filename)
-    def load_strip(self, rects, lis):
+    def load_strip(self, rects, lis, dimx, dimy):
         for rect in rects:
-            sprite = pygame.Surface((41, 41), pygame.SRCALPHA)
+            sprite = pygame.Surface((dimx, dimy), pygame.SRCALPHA)
             sprite.blit(self.spritesheet,(0, 0), rect)
             lis.append(sprite)
 
 ss = SpriteSheet('FFE_game\images\mc_ss.png')
+menu_ss = SpriteSheet('FFE_game\images\menu_ss.png')
 
 # lists of sprites in order based on idle and direction
 
 mc_i3 = []
-ss.load_strip(coords_i3, mc_i3)
+ss.load_strip(coords_i3, mc_i3, 41, 41)
 
 mc_w3 = []
-ss.load_strip(coords_w3, mc_w3)
+ss.load_strip(coords_w3, mc_w3, 41, 41)
 
 mc_i2 = []
-ss.load_strip(coords_i2, mc_i2)
+ss.load_strip(coords_i2, mc_i2, 41, 41)
 
 mc_w2 = []
-ss.load_strip(coords_w2, mc_w2)
+ss.load_strip(coords_w2, mc_w2, 41, 41)
 
 mc_i1 = []
-ss.load_strip(coords_i1, mc_i1)
+ss.load_strip(coords_i1, mc_i1, 41, 41)
 
 mc_w1 = []
-ss.load_strip(coords_w1, mc_w1)
+ss.load_strip(coords_w1, mc_w1, 41, 41)
 
 mc_i0 = []
-ss.load_strip(coords_i0, mc_i0)
+ss.load_strip(coords_i0, mc_i0, 41, 41)
 
 mc_w0 = []
-ss.load_strip(coords_w0, mc_w0)
+ss.load_strip(coords_w0, mc_w0, 41, 41)
+
+#-------------------------
+
+mm = []
+
+menu_ss.load_strip(coords_mm, mm, 640, 480)
 
 #-------------------------
 
@@ -66,9 +73,9 @@ ss.load_strip(coords_w0, mc_w0)
 #                 if event.key == pygame.K_q:
 #                     sys.exit()
 #     i += 1
-#     if i > 15:
+#     if i > 5:
 #         i = 0
-#     screen.fill(white)
-#     clock.tick(10)
-#     screen.blit(mc_i3[i], (100, 150))
+#     # screen.fill(white)
+#     clock.tick(1)
+#     screen.blit(mm[i], (0, 0))
 #     pygame.display.flip()
