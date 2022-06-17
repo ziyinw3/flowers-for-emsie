@@ -19,7 +19,7 @@ class FFEGame:
         """Initialize the game, and create resources."""
 
     # main game loop
-    def run_game(self):
+    def run(self):
         """Start the main loop for the game."""
         
         while True:
@@ -71,4 +71,4 @@ class FFEGame:
 
 if __name__ == '__main__':
     FFE_game = FFEGame()
-    FFE_game.run_game()
+    FFE_game.run()
