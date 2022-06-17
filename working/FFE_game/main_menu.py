@@ -19,11 +19,15 @@ class MainMenu:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
+                if event.type == pygame.MOUSEBUTTONUP:
+                    self.draw().start_b.pressed_button()
+
             if self.mm_count < 179:
                 self.mm_count += 1
             else:
                 self.mm_count = 0
             self.draw()
+        pygame.quit()
 
     def draw(self):        
         self.screen.blit(mm[self.mm_count // 30], (0, 0))
@@ -38,6 +42,13 @@ class MainMenu:
         cursor_rect.center = pygame.mouse.get_pos()  # update position 
         self.screen.blit(cursor, cursor_rect)
         pygame.display.flip()
+    
+    def pressed_button(self):
+        if Button.rect.collidepoint(pygame.mouse.get_pos()):
+            FFE_game = FFEGame(self.screen)
+            FFE_game.run()
+            del FFE_game
+            
 
 class Button:
     def __init__(self, imgu, imgd, posx, posy):
