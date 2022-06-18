@@ -4,7 +4,7 @@ import sys, pygame
 
 from settings import Settings
 
-from msc_functions import emsie
+from MC import emsie
 
 pygame.init()
 settings = Settings()

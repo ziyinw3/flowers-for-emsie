@@ -2,16 +2,19 @@ things for upscaling and optimization:
 
 package (init, packaging, core, oop, modules, classes, methods, packets)
 
+next goal:
+make cursor blit when emsie not walking, disappear when she is 
+up everything to 60 fps
+put a cutscene (or at least a placeholder)
+
 things to troubleshoot:
-use pygame.keydown to update direction of walk 
-when pygame.keyup, iterate through pressed keys, prioritizing down, up, right, and left facing
+
 
 things to redo:
-move sprites into sprite sheet
-draw rectangle class?
+
 
 things to add in the foreseeable future:
-watering animation per angle (make it obvious from the back!)
+watering animation from left and right
 celebration animation!
 
 
@@ -19,7 +22,6 @@ celebration animation!
 things to add later:
 on screen buttons for retry and new maze:
 -time fast forward and time go backward transition animations (clock)
--game icon!
 
 
 endgame:

@@ -10,7 +10,7 @@ class MC:
     def __init__(self):
         self.loc = [100, 150]
         self.states = [False, False, False, False]
-        self.vel = 5
+        self.vel = 4
         self.face_dir = 3
         self.idle = True
         self.img = mc_i3[0]
