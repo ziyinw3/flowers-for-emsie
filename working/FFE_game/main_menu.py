@@ -17,6 +17,7 @@ class Button:
         self.navi = navi
     def hover(self):
         return self.imgd if self.rect.collidepoint(pygame.mouse.get_pos()) else self.imgu
+
     def pressed(self, pg_instance):
         if self.rect.collidepoint(pygame.mouse.get_pos()):
             pg_instance = self.navi()
@@ -38,6 +39,7 @@ class MainMenu:
 
     def run(self):
         run = True
+        self.play_music('OST', 'main_theme')
         while run:
             self.clock.tick(60)
             for event in pygame.event.get():
@@ -72,3 +74,14 @@ class MainMenu:
         self.screen.blit(start_b.hover(), start_b.pos)
         self.screen.blit(load_b.hover(), load_b.pos)
         self.screen.blit(opt_b.hover(), opt_b.pos)
+
+    #------------------------------------------------------------- 
+
+    def play_music(self, typem, namem):
+        self.type = typem
+        self.name = namem
+        if self.type == 'OST':
+            pygame.mixer.music.load('FFE_game\OST\\' + self.name + '.wav')
+            pygame.mixer.music.set_volume(0.4)
+            pygame.mixer.music.play(-1)
+

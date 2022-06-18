@@ -17,6 +17,7 @@ things to add in the foreseeable future:
 watering animation from left and right
 celebration animation!
 progression bar that is actually the sun and moon moving across the sky
+pause function
 
 
 
