@@ -48,7 +48,9 @@ class MainMenu:
 
     def run(self):
         run = True
-        self.play_music('OST', 'main_theme')
+        self.settings = Settings()
+        if self.settings.music_on == True:
+            self.play_music('OST', 'main_theme')
         while run:
             self.clock.tick(60)
             for event in pygame.event.get():
@@ -58,10 +60,10 @@ class MainMenu:
                    start_b.pressed('a')
                    load_b.pressed('b')
                    opt_b.pressed('c')
-            
-            start_b.hover_sound()
-            load_b.hover_sound()
-            opt_b.hover_sound()
+            if self.settings.sound_on == True:
+                start_b.hover_sound()
+                load_b.hover_sound()
+                opt_b.hover_sound()
 
             if self.mm_count < 179:
                 self.mm_count += 1
