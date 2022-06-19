@@ -17,6 +17,15 @@ class Button:
         self.navi = navi
     def hover(self):
         return self.imgd if self.rect.collidepoint(pygame.mouse.get_pos()) else self.imgu
+        
+    def hover_sound(self):
+        if self.hover() == self.imgd:
+            if not self.played:
+                pygame.mixer.Sound('FFE_game\sounds\interact.wav').play()
+                self.played = True
+        else:
+            self.played = False
+
 
     def pressed(self, pg_instance):
         if self.rect.collidepoint(pygame.mouse.get_pos()):
@@ -49,6 +58,10 @@ class MainMenu:
                    start_b.pressed('a')
                    load_b.pressed('b')
                    opt_b.pressed('c')
+            
+            start_b.hover_sound()
+            load_b.hover_sound()
+            opt_b.hover_sound()
 
             if self.mm_count < 179:
                 self.mm_count += 1
