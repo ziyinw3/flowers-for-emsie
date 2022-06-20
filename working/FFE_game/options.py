@@ -1,14 +1,14 @@
-# from FFE_game import FFE_game
+from FFE_game import FFEGame
 from settings import Settings
 from Button import Button
 
 import pygame
 
-from spritesheet import cursor, cursor_rect
+from spritesheet import cursor, cursor_rect, op, flower_bu, flower_bd
 
 # initialize buttons
 
-music_b = Button()
+music_b = Button(flower_bu[0], flower_bd[0], 372, 160, FFEGame)
 sound_b = Button()
 twox_b = Button()
 
@@ -55,7 +55,7 @@ class OptPage:
         pygame.quit()
     
     def draw_op(self):
-        self.screen.blit(...)
+        self.screen.blit(op[self.op_count // 30], (0, 0))
 
     def draw_curs(self):
         # blit cursor

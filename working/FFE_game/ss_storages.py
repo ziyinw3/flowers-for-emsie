@@ -55,3 +55,22 @@ coords_buttond = []
 
 for i in range(0, 3):
     coords_buttond.append((i * 128, 52, i * 128 + 128, 2 * 52))
+
+# options menu
+
+coords_op = []
+
+for i in range(0, 2):
+    coords_op.append((i * 640, 0, i * 640 + 640, 480))
+
+#coords for flowers that are unhovered
+
+coords_flower_bu = []
+
+for i in range (0, 2):
+    coords_flower_bu.append((0, i * 64, 64, 56 * i))
+
+coords_flower_bd = []
+
+for i in range (0, 2):
+    coords_flower_bu.append((0, i * 64 + 64, 64, 56 * i))

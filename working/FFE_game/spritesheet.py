@@ -20,6 +20,8 @@ class SpriteSheet:
 ss = SpriteSheet('FFE_game\images\mc_ss.png')
 menu_ss = SpriteSheet('FFE_game\images\menu_ss.png')
 button_ss = SpriteSheet('FFE_game\images\\buttons_ss.png')
+options_ss = SpriteSheet('FFE_game\images\\options_ss.png')
+flower_b_ss = SpriteSheet('FFE_game\images\\flower_b_ss.png')
 
 # lists of sprites in order based on idle and direction
 
@@ -69,6 +71,18 @@ cursor = pygame.image.load('FFE_game\images\cursor.png')
 
 cursor_rect = cursor.get_rect()
 #-------------------------
+
+op = []
+
+options_ss.load_strip(coords_op, op, 640, 480)
+
+flower_bu = []
+
+flower_b_ss.load_strip(coords_flower_bu, flower_bu, 64, 56)
+
+flower_bd = []
+
+flower_b_ss.load_strip(coords_flower_bd, flower_bd, 64, 56)
 
 # pygame.init()
 
