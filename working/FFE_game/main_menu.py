@@ -5,7 +5,7 @@ from Button import Button
 
 from settings import Settings
 
-import pygame
+import pygame, sys
 
 from spritesheet import mm, buttonu, buttond, cursor, cursor_rect
 
@@ -32,6 +32,9 @@ class MainMenu:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q:
+                        sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     # instances are dummy names
                    start_b.pressed_navi('a')

@@ -15,7 +15,8 @@ pygame.display.set_icon(settings.icon)
 class FFEGame:
     """Overall class to manage game assets and behavior."""
     # initializer
-    def __init__(self):
+    def __init__(self, screen):
+        self.screen = screen
         """Initialize the game, and create resources."""
 
     # main game loop

@@ -2,7 +2,7 @@ from FFE_game import FFEGame
 from settings import Settings
 from Button import Button
 
-import pygame
+import pygame, sys
 
 from spritesheet import cursor, cursor_rect, op, flower_bu, flower_bd
 
@@ -30,6 +30,9 @@ class OptPage:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q:
+                        sys.exit()
                 # if event.type == pygame.MOUSEBUTTONDOWN:
                     # three buttons should access settings
 
