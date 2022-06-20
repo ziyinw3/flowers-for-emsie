@@ -1,37 +1,13 @@
 from FFE_game import FFEGame
 from options import OptPage
 from load import LoadPage
+from Button import Button
 
 from settings import Settings
 
 import pygame
 
 from spritesheet import mm, buttonu, buttond, cursor, cursor_rect
-
-class Button:
-    def __init__(self, imgu, imgd, x, y, navi):
-        self.imgu = imgu
-        self.imgd = imgd
-        self.pos = (x, y)
-        self.rect = pygame.Rect(x, y, 128, 52)
-        self.navi = navi
-    def hover(self):
-        return self.imgd if self.rect.collidepoint(pygame.mouse.get_pos()) else self.imgu
-        
-    def hover_sound(self):
-        if self.hover() == self.imgd:
-            if not self.played:
-                pygame.mixer.Sound('FFE_game\sounds\interact.wav').play()
-                self.played = True
-        else:
-            self.played = False
-
-
-    def pressed(self, pg_instance):
-        if self.rect.collidepoint(pygame.mouse.get_pos()):
-            pg_instance = self.navi()
-            pg_instance.run()
-            del pg_instance
 
 # initialize some buttons
 
@@ -57,9 +33,10 @@ class MainMenu:
                 if event.type == pygame.QUIT:
                     run = False
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                   start_b.pressed('a')
-                   load_b.pressed('b')
-                   opt_b.pressed('c')
+                    # instances are dummy names
+                   start_b.pressed_navi('a')
+                   load_b.pressed_navi('b')
+                   opt_b.pressed_navi('c')
             if self.settings.sound_on == True:
                 start_b.hover_sound()
                 load_b.hover_sound()
@@ -82,7 +59,7 @@ class MainMenu:
         # blit cursor
         cursor_rect.center = pygame.mouse.get_pos()  # update position 
         self.screen.blit(cursor, cursor_rect)
-        pygame.display.flip()
+        pygame.display.update()
 
     def draw_buttons(self):
         # blit buttons
