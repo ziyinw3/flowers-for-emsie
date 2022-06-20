@@ -9,8 +9,8 @@ from spritesheet import cursor, cursor_rect, op, flower_bu, flower_bd
 # initialize buttons
 
 music_b = Button(flower_bu[0], flower_bd[0], 372, 160, FFEGame)
-sound_b = Button()
-twox_b = Button()
+sound_b = Button(flower_bu[0], flower_bd[0], 372, 160 + 64, FFEGame)
+twox_b = Button(flower_bu[0], flower_bd[0], 372, 160 + 64 * 2, FFEGame)
 
 
 class OptPage:
@@ -24,9 +24,7 @@ class OptPage:
         print('running options page')
         run = True
         self.settings = Settings()
-        
         # start while loop, check for q
-
         while run:
             self.clock.tick(60)
             for event in pygame.event.get():
@@ -39,15 +37,15 @@ class OptPage:
 
         # mouse visible false, blit custom cursor
         # write button hovers, sounds, and store button clicked state and blit clicked image
-            if self.settings_sound_on == True:
+            if self.settings.sound_on == True:
                 music_b.hover_sound()
                 sound_b.hover_sound()
                 twox_b.hover_sound()
             
-            if self.op_count == 1:
-                self.op_count = 0
+            if self.op_count < 59:
+                self.op_count += 1
             else:
-                self.op_count = 1
+                self.op_count = 0
             
             self.draw_op()
             self.draw_buttons()

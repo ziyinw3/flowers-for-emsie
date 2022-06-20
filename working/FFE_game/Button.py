@@ -1,5 +1,7 @@
 import pygame
 
+screen = pygame.display.set_mode((640, 480))
+
 class Button:
     def __init__(self, imgu, imgd, x, y, navi):
         self.imgu = imgu
@@ -21,6 +23,6 @@ class Button:
 
     def pressed_navi(self, pg_instance):
         if self.rect.collidepoint(pygame.mouse.get_pos()):
-            pg_instance = self.navi()
+            pg_instance = self.navi(screen)
             pg_instance.run()
             del pg_instance
