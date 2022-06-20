@@ -8,9 +8,9 @@ from spritesheet import cursor, cursor_rect, op, flower_bu, flower_bd
 
 # initialize buttons
 
-music_b = Button(flower_bu[0], flower_bd[0], 372, 160, FFEGame)
-sound_b = Button(flower_bu[0], flower_bd[0], 372, 160 + 64, FFEGame)
-twox_b = Button(flower_bu[0], flower_bd[0], 372, 160 + 64 * 2, FFEGame)
+music_b = Button(flower_bu[0], flower_bd[0], 372, 160, FFEGame, 64, 56)
+sound_b = Button(flower_bu[0], flower_bd[0], 372, 160 + 64, FFEGame, 64, 56)
+twox_b = Button(flower_bu[0], flower_bd[0], 372, 160 + 128, FFEGame, 64, 56)
 
 
 class OptPage:
@@ -21,8 +21,8 @@ class OptPage:
         self.op_count = 0
 
     def run(self):
-        print('running options page')
         run = True
+        # get in touch with global settings
         self.settings = Settings()
         # start while loop, check for q
         while run:
@@ -33,7 +33,6 @@ class OptPage:
                 # if event.type == pygame.MOUSEBUTTONDOWN:
                     # three buttons should access settings
 
-        # blit option screen loop based on step count
 
         # mouse visible false, blit custom cursor
         # write button hovers, sounds, and store button clicked state and blit clicked image
@@ -41,7 +40,7 @@ class OptPage:
                 music_b.hover_sound()
                 sound_b.hover_sound()
                 twox_b.hover_sound()
-            
+             # blit option screen loop based on step count
             if self.op_count < 59:
                 self.op_count += 1
             else:
