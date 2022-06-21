@@ -5,6 +5,7 @@ package (init, packaging, core, oop, modules, classes, methods, packets)
 next goal:
 make cursor blit when emsie not walking, disappear when she is 
 up everything to 60 fps
+implement camera
 put a cutscene (or at least a placeholder)
 
 things to troubleshoot:
