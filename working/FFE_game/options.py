@@ -37,9 +37,6 @@ class OptPage:
                     music_b.button_listener()
                     sound_b.button_listener()
                     twox_b.button_listener()
-
-
-        # mouse visible false, blit custom cursor
         # write button hovers, sounds, and store button clicked state and blit clicked image
             if self.settings.sound_on == True:
                 music_b.hover_sound()
