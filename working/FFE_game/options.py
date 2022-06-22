@@ -1,6 +1,6 @@
 from FFE_game import FFEGame
 from settings import Settings
-from Button import Button
+from Button import ToggleButton
 
 import pygame, sys
 
@@ -8,9 +8,9 @@ from spritesheet import cursor, cursor_rect, op, flower_bu, flower_bd
 
 # initialize buttons
 
-music_b = Button(flower_bu[0], flower_bd[0], 372, 160, FFEGame, 64, 56)
-sound_b = Button(flower_bu[0], flower_bd[0], 372, 160 + 64, FFEGame, 64, 56)
-twox_b = Button(flower_bu[0], flower_bd[0], 372, 160 + 128, FFEGame, 64, 56)
+music_b = ToggleButton(flower_bu[0], flower_bd[0], flower_bu[1], 372, 160, 64, 56, 'music_on')
+sound_b = ToggleButton(flower_bu[0], flower_bd[0], flower_bu[1], 372, 160 + 64, 64, 56, 'sound_on')
+twox_b = ToggleButton(flower_bu[0], flower_bd[0], flower_bu[1], 372, 160 + 128, 64, 56, 'twox_res')
 
 
 class OptPage:
@@ -33,8 +33,10 @@ class OptPage:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         sys.exit()
-                # if event.type == pygame.MOUSEBUTTONDOWN:
-                    # three buttons should access settings
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    music_b.button_listener()
+                    sound_b.button_listener()
+                    twox_b.button_listener()
 
 
         # mouse visible false, blit custom cursor

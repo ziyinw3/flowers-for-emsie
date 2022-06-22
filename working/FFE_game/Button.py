@@ -29,3 +29,21 @@ class Button:
 
     # function for buttons that change settings only
     # def pressed_setting(self):
+
+
+class ToggleButton(Button):
+    def __init__(self, imgu, imgd, imgnext, x, y, dimx, dimy, toggler):
+        self.imgu = imgu
+        self.imgd = imgd
+        self.imgnext = imgnext
+        self.pos = (x, y)
+        self.rect = pygame.Rect(x, y, dimx, dimy)
+        self.toggler = toggler
+
+    def button_listener(self):
+        if self.hover() == self.imgd:
+            self.hover() == self.imgnext
+
+
+    
+    
