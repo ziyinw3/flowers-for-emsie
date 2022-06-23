@@ -8,9 +8,9 @@ from spritesheet import cursor, cursor_rect, op, flower_bu, flower_bd
 
 # initialize buttons
 
-music_b = ToggleButton(flower_bu[0], flower_bd[0], flower_bu[1], 372, 160, 64, 56, 'music_on')
-sound_b = ToggleButton(flower_bu[0], flower_bd[0], flower_bu[1], 372, 160 + 64, 64, 56, 'sound_on')
-twox_b = ToggleButton(flower_bu[0], flower_bd[0], flower_bu[1], 372, 160 + 128, 64, 56, 'twox_res')
+music_b = ToggleButton(flower_bu[0], flower_bu[1], flower_bd[0], 372, 160, 64, 56, 'music_on')
+sound_b = ToggleButton(flower_bu[0], flower_bu[1], flower_bd[0], 372, 224, 64, 56, 'sound_on')
+twox_b = ToggleButton(flower_bu[0], flower_bu[1], flower_bd[0], 372, 288, 64, 56, 'twox_res')
 
 
 class OptPage:
