@@ -25,7 +25,10 @@ while True:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         sys.exit()
-    screen.blit(flower_bu[1], (100, 200))
+    screen.blit(flower_bu[0], (100, 200))
+    screen.blit(flower_bu[1], (100 + 100, 200))
+    screen.blit(flower_bd[0], (100 + 100 + 100, 200))
+    screen.blit(flower_bd[1], (100 + 100 + 100 + 100, 200))
     # if rect.collidepoint(pygame.mouse.get_pos()):
     #     screen.blit(flower_bu[0], (100, 200))
     

@@ -40,6 +40,8 @@ class ToggleButton(Button):
         self.rect = pygame.Rect(x, y, dimx, dimy)
         self.toggler = toggler
 
+    
+
     def button_listener(self):
         if self.hover() == self.imgd:
             self.hover() == self.imgnext

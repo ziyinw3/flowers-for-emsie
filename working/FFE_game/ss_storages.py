@@ -68,12 +68,9 @@ for i in range(0, 2):
 coords_flower_bu = []
 
 for i in range (0, 2):
-    coords_flower_bu.append((0, i * 64, 64, 56))
+    coords_flower_bu.append((0, i * 56, 64, 56 * i + 56))
 
 coords_flower_bd = []
 
 for i in range (0, 2):
-    coords_flower_bd.append((0, i * 64 + 64, 64, 56 * 2))
-
-print(coords_flower_bu)
-print(coords_flower_bd)
+    coords_flower_bd.append((64, i * 56, 64 + 64, 56 * i + 56))
