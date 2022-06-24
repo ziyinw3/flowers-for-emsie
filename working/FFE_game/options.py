@@ -1,5 +1,5 @@
 from FFE_game import FFEGame
-from settings import Settings
+from settings import settings
 from Button import ToggleButton
 
 import pygame, sys
@@ -23,7 +23,7 @@ class OptPage:
     def run(self):
         run = True
         # get in touch with global settings
-        self.settings = Settings()
+        # self.settings = Settings()
         # start while loop, check for q
         while run:
             self.clock.tick(60)
@@ -38,7 +38,7 @@ class OptPage:
                     sound_b.button_listener()
                     twox_b.button_listener()
         # write button hovers, sounds, and store button clicked state and blit clicked image
-            if self.settings.sound_on == True:
+            # if self.settings.sound_on == True:
                 music_b.hover_sound()
                 sound_b.hover_sound()
                 twox_b.hover_sound()

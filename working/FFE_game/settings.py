@@ -16,3 +16,5 @@ class Settings:
         self.music_on = True
         self.sound_on = True
         self.twox_res = False
+
+settings = Settings()

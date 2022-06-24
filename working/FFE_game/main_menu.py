@@ -2,8 +2,9 @@ from FFE_game import FFEGame
 from options import OptPage
 from load import LoadPage
 from Button import Button
+from settings import settings
 
-from settings import Settings
+# from run import settings
 
 import pygame, sys
 
@@ -24,8 +25,8 @@ class MainMenu:
 
     def run(self):
         run = True
-        self.settings = Settings()
-        if self.settings.music_on == True:
+        # self.settings = Settings()
+        if settings.music_on == True:
             self.play_music('OST', 'main_theme')
         while run:
             self.clock.tick(60)
@@ -40,7 +41,7 @@ class MainMenu:
                    start_b.pressed_navi('a')
                    load_b.pressed_navi('b')
                    opt_b.pressed_navi('c')
-            if self.settings.sound_on == True:
+            if settings.sound_on == True:
                 start_b.hover_sound()
                 load_b.hover_sound()
                 opt_b.hover_sound()
