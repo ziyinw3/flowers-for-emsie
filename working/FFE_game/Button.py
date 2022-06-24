@@ -9,6 +9,7 @@ class Button:
         self.pos = (x, y)
         self.rect = pygame.Rect(x, y, dimx, dimy)
         self.navi = navi
+        self.played = False
     def hover(self):
         return self.imgd if self.rect.collidepoint(pygame.mouse.get_pos()) else self.imgu
         
@@ -36,10 +37,14 @@ class ToggleButton():
         self.pos = (x, y)
         self.rect = pygame.Rect(x, y, dimx, dimy)
         self.hover = False
+        self.clicked = False
         # self.toggler = toggler
 
     def button_listener(self):
         print ('pressed!')
+        if self.rect.collidepoint(pygame.mouse.get_pos()):
+            self.clicked = True
+        print(self.clicked)
     
     # def hover(self):
     #     if self.rect.collidepoint(pygame.mouse.get_pos()):
