@@ -31,20 +31,40 @@ class Button:
     # def pressed_setting(self):
 
 
-class ToggleButton(Button):
-    def __init__(self, imgu, imgd, imgnext, x, y, dimx, dimy, toggler):
-        self.imgu = imgu
-        self.imgd = imgd
-        self.imgnext = imgnext
+class ToggleButton():
+    def __init__(self, x, y, dimx, dimy, toggler):
         self.pos = (x, y)
         self.rect = pygame.Rect(x, y, dimx, dimy)
-        self.toggler = toggler
-
-    
+        self.hover = False
+        # self.toggler = toggler
 
     def button_listener(self):
-        if self.hover() == self.imgd:
-            self.hover() == self.imgnext
+        print ('pressed!')
+    
+    # def hover(self):
+    #     if self.rect.collidepoint(pygame.mouse.get_pos()):
+    #         self.hover = True
+    #         print('hi!')
+    
+    def hover_sound(self):
+        if self.rect.collidepoint(pygame.mouse.get_pos()):
+            self.hover = True
+        else:
+            self.hover = False        
+        if self.hover == True:
+            if not self.played:
+                pygame.mixer.Sound('FFE_game\sounds\interact.wav').play()
+                self.played = True
+        else:
+            self.played = False        
+
+    def toggler(self, lis):
+        self.lis = lis
+        self.last_blit = 0
+        self.to_blit = 0
+        if self.last_blit == 0 and self.hover == True:
+            self.to_blit = 1
+        return self.lis[self.to_blit]
 
 
     

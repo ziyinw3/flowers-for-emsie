@@ -84,6 +84,8 @@ flower_bd = []
 
 flower_b_ss.load_strip(coords_flower_bd, flower_bd, 64, 56)
 
+flower_toggle = [flower_bu[0], flower_bd[0], flower_bu[1], flower_bd[1]]
+
 # pygame.init()
 
 # size = (640, 480)

@@ -4,13 +4,13 @@ from Button import ToggleButton
 
 import pygame, sys
 
-from spritesheet import cursor, cursor_rect, op, flower_bu, flower_bd
+from spritesheet import cursor, cursor_rect, op, flower_bu, flower_bd, flower_toggle
 
 # initialize buttons
 
-music_b = ToggleButton(flower_bu[0], flower_bd[0], flower_bu[1], 372, 160, 64, 56, 'music_on')
-sound_b = ToggleButton(flower_bu[0], flower_bd[0], flower_bd[1], 372, 224, 64, 56, 'sound_on')
-twox_b = ToggleButton(flower_bu[1], flower_bd[1], flower_bd[0], 372, 288, 64, 56, 'twox_res')
+music_b = ToggleButton(372, 160, 64, 56, 'music_on')
+sound_b = ToggleButton(372, 224, 64, 56, 'sound_on')
+twox_b = ToggleButton(372, 288, 64, 56, 'twox_res')
 
 
 class OptPage:
@@ -63,9 +63,9 @@ class OptPage:
         pygame.display.update()
 
     def draw_buttons(self):
-        self.screen.blit(music_b.hover(), music_b.pos)
-        self.screen.blit(sound_b.hover(), sound_b.pos)
-        self.screen.blit(twox_b.hover(), twox_b.pos)
+        self.screen.blit(music_b.toggler(flower_toggle), music_b.pos)
+        self.screen.blit(sound_b.toggler(flower_toggle), sound_b.pos)
+        self.screen.blit(twox_b.toggler(flower_toggle), twox_b.pos)
 
         # write back button that can thread back to previous screen??
         
