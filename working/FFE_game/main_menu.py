@@ -39,10 +39,13 @@ class MainMenu:
                     if event.key == pygame.K_q:
                         sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
+                    if settings.sound_on == True:
+                        pygame.mixer.Sound('FFE_game\sounds\on_click.wav').set_volume(0.2)
+                        pygame.mixer.Sound('FFE_game\sounds\on_click.wav').play()
                     # instances are dummy names
-                   start_b.pressed_navi('a')
-                   load_b.pressed_navi('b')
-                   opt_b.pressed_navi('c')
+                    start_b.pressed_navi('a')
+                    load_b.pressed_navi('b')
+                    opt_b.pressed_navi('c')
             if settings.sound_on == True:
                 start_b.hover_sound()
                 load_b.hover_sound()
@@ -84,5 +87,5 @@ class MainMenu:
             pygame.mixer.music.play(-1)
     
     def stop_music(self):
-        pygame. mixer. music. stop()
+        pygame.mixer.music.stop()
 
