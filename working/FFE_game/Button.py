@@ -41,6 +41,7 @@ class ToggleButton():
         self.clicked = False
         self.state = state
         self.toggler = toggler
+        self.last_blit = state
     # actual toggler
     def button_listener(self):
         if self.rect.collidepoint(pygame.mouse.get_pos()):
@@ -69,13 +70,17 @@ class ToggleButton():
             else:
                 self.played = False        
 
-    def toggler(self, lis):
+    def blitter(self, lis):
         self.lis = lis
-        self.last_blit = 0
-        self.to_blit = 0
-        if self.last_blit == 0 and self.hover == True:
-            self.to_blit = 1
-        return self.lis[self.to_blit]
+        if self.state == 0 and self.hover == True:
+            self.last_blit = 3
+        if self.state == 0 and self.hover == False:
+            self.last_blit = 0
+        if self.state == 1 and self.hover == True:
+            self.last_blit = 1
+        if self.state == 1 and self.hover == False:
+            self.last_blit = 2
+        return self.lis[self.last_blit]
 
 
     

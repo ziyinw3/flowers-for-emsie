@@ -67,9 +67,9 @@ class OptPage:
         pygame.display.update()
 
     def draw_buttons(self):
-        self.screen.blit(flower_bu[0], music_b.pos)
-        self.screen.blit(flower_bu[0], sound_b.pos)
-        self.screen.blit(flower_bu[1], twox_b.pos)
+        self.screen.blit(music_b.blitter(flower_toggle), music_b.pos)
+        self.screen.blit(sound_b.blitter(flower_toggle), sound_b.pos)
+        self.screen.blit(twox_b.blitter(flower_toggle), twox_b.pos)
 
         # write back button that can thread back to previous screen??
         
