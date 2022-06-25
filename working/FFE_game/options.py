@@ -6,7 +6,7 @@ import pygame, sys
 
 from spritesheet import cursor, cursor_rect, op, flower_bu, flower_bd, flower_toggle
 
-# initialize buttons
+# initialize buttons, music and sound on, 2xres off
 
 music_b = ToggleButton(372, 160, 64, 56, 'music_on', 1)
 sound_b = ToggleButton(372, 224, 64, 56, 'sound_on', 1)
@@ -27,6 +27,7 @@ class OptPage:
         # start while loop, check for q     
         while run:
             self.clock.tick(60)
+            print(settings.music_on, settings.sound_on, settings.twox_res)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False

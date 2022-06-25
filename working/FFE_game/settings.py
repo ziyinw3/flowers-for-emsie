@@ -17,4 +17,5 @@ class Settings:
         self.sound_on = True
         self.twox_res = False
 
+global settings
 settings = Settings()

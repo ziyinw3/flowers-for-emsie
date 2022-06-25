@@ -42,6 +42,7 @@ class ToggleButton():
         self.state = state
         self.toggler = toggler
         self.last_blit = state
+        self.played = False
     # actual toggler
     def button_listener(self):
         if self.rect.collidepoint(pygame.mouse.get_pos()):
@@ -51,22 +52,24 @@ class ToggleButton():
         if self.clicked == True and self.state == 1:
             print(self.toggler + ' turned off!')
             self.state = 0
-            settings.music_on = False
+            settings.toggler = False
+            print (settings.toggler)
         elif self.clicked == True and self.state == 0:
             print(self.toggler + ' turned on!')
             self.state = 1
+            settings.toggler = True
+            print (settings.toggler)
 
     # new combined method for hover detection and sound playing    
     def hover_sound(self):
-        if settings.sound_on == True:
-            if self.rect.collidepoint(pygame.mouse.get_pos()):
-                self.hover = True
-            else:
-                self.hover = False        
-            if self.hover == True:
-                if not self.played:
-                    pygame.mixer.Sound('FFE_game\sounds\interact.wav').play()
-                    self.played = True
+        if self.rect.collidepoint(pygame.mouse.get_pos()):
+            self.hover = True
+        else:
+            self.hover = False        
+        if self.hover == True:
+            if not self.played and settings.sound_on == True:
+                pygame.mixer.Sound('FFE_game\sounds\interact.wav').play()
+                self.played = True
             else:
                 self.played = False        
 
