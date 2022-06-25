@@ -73,13 +73,13 @@ class ToggleButton():
     def blitter(self, lis):
         self.lis = lis
         if self.state == 0 and self.hover == True:
-            self.last_blit = 3
-        if self.state == 0 and self.hover == False:
-            self.last_blit = 0
-        if self.state == 1 and self.hover == True:
             self.last_blit = 1
-        if self.state == 1 and self.hover == False:
+        if self.state == 0 and self.hover == False:
             self.last_blit = 2
+        if self.state == 1 and self.hover == True:
+            self.last_blit = 3
+        if self.state == 1 and self.hover == False:
+            self.last_blit = 0
         return self.lis[self.last_blit]
 
 
