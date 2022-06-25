@@ -8,9 +8,9 @@ from spritesheet import cursor, cursor_rect, op, flower_bu, flower_bd, flower_to
 
 # initialize buttons
 
-music_b = ToggleButton(372, 160, 64, 56, 'music_on')
-sound_b = ToggleButton(372, 224, 64, 56, 'sound_on')
-twox_b = ToggleButton(372, 288, 64, 56, 'twox_res')
+music_b = ToggleButton(372, 160, 64, 56, 'music_on', 1)
+sound_b = ToggleButton(372, 224, 64, 56, 'sound_on', 1)
+twox_b = ToggleButton(372, 288, 64, 56, 'twox_res', 0)
 
 
 class OptPage:
@@ -24,7 +24,7 @@ class OptPage:
         run = True
         # get in touch with global settings
         # self.settings = Settings()
-        # start while loop, check for q
+        # start while loop, check for q     
         while run:
             self.clock.tick(60)
             for event in pygame.event.get():
@@ -63,9 +63,9 @@ class OptPage:
         pygame.display.update()
 
     def draw_buttons(self):
-        self.screen.blit(music_b.toggler(flower_toggle), music_b.pos)
-        self.screen.blit(sound_b.toggler(flower_toggle), sound_b.pos)
-        self.screen.blit(twox_b.toggler(flower_toggle), twox_b.pos)
+        self.screen.blit(flower_bu[0], music_b.pos)
+        self.screen.blit(flower_bu[0], sound_b.pos)
+        self.screen.blit(flower_bu[1], twox_b.pos)
 
         # write back button that can thread back to previous screen??
         

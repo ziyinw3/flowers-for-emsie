@@ -1,4 +1,5 @@
 import pygame
+from settings import settings
 
 screen = pygame.display.set_mode((640, 480))
 
@@ -33,18 +34,26 @@ class Button:
 
 
 class ToggleButton():
-    def __init__(self, x, y, dimx, dimy, toggler):
+    def __init__(self, x, y, dimx, dimy, toggler, state):
         self.pos = (x, y)
         self.rect = pygame.Rect(x, y, dimx, dimy)
         self.hover = False
         self.clicked = False
-        # self.toggler = toggler
+        self.state = state
+        self.toggler = toggler
 
     def button_listener(self):
-        print ('pressed!')
         if self.rect.collidepoint(pygame.mouse.get_pos()):
             self.clicked = True
-        print(self.clicked)
+        else: self.clicked = False
+
+        if self.clicked == True and self.state == 1:
+            print(self.toggler + 'turned off!')
+            self.state = 0
+            settings.music_on = False
+        elif self.clicked == True and self.state == 0:
+            print(self.toggler + 'turned on!')
+            self.state = 1
     
     # def hover(self):
     #     if self.rect.collidepoint(pygame.mouse.get_pos()):

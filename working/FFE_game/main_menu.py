@@ -28,6 +28,8 @@ class MainMenu:
         # self.settings = Settings()
         if settings.music_on == True:
             self.play_music('OST', 'main_theme')
+        else:
+            self.stop_music()
         while run:
             self.clock.tick(60)
             for event in pygame.event.get():
@@ -80,4 +82,7 @@ class MainMenu:
             pygame.mixer.music.load('FFE_game\OST\\' + self.name + '.wav')
             pygame.mixer.music.set_volume(0.4)
             pygame.mixer.music.play(-1)
+    
+    def stop_music(self):
+        pygame. mixer. music. stop()
 
