@@ -27,7 +27,6 @@ class OptPage:
         # start while loop, check for q     
         while run:
             self.clock.tick(60)
-            print(settings.music_on, settings.sound_on, settings.twox_res)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
@@ -35,15 +34,10 @@ class OptPage:
                     if event.key == pygame.K_q:
                         sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    if settings.sound_on == True:
-                        pygame.mixer.Sound('FFE_game\sounds\on_click.wav').set_volume(0.2)
-                        pygame.mixer.Sound('FFE_game\sounds\on_click.wav').play()
-                    
                     music_b.button_listener()
                     sound_b.button_listener()
                     twox_b.button_listener()
         # write button hovers, sounds, and store button clicked state and blit clicked image
-            # if self.settings.sound_on == True:
                 music_b.hover_sound()
                 sound_b.hover_sound()
                 twox_b.hover_sound()
