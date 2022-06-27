@@ -15,7 +15,7 @@ twox_b = ToggleButton(372, 288, 64, 56, 'twox_res', 0)
 
 class OptPage:
     def __init__(self, screen):
-        print('init options')
+        # print('init options')
         self.screen = screen
         self.clock = pygame.time.Clock()
         self.op_count = 0
@@ -34,6 +34,9 @@ class OptPage:
                     if event.key == pygame.K_q:
                         sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
+                    if settings.sound_on == True:
+                        pygame.mixer.Sound('FFE_game\sounds\on_click.wav').set_volume(0.2)
+                        pygame.mixer.Sound('FFE_game\sounds\on_click.wav').play()
                     music_b.button_listener()
                     sound_b.button_listener()
                     twox_b.button_listener()

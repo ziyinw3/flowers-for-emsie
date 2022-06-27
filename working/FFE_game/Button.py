@@ -54,12 +54,12 @@ class ToggleButton():
         else: self.clicked = False
 
         if self.clicked == True and self.state == 1:
-            # print(self.toggler + ' turned off!')
+            print(self.toggler + ' turned off!')
             self.state = 0
             settings.toggler = False
             print (settings.toggler)
         elif self.clicked == True and self.state == 0:
-            # print(self.toggler + ' turned on!')
+            print(self.toggler + ' turned on!')
             self.state = 1
             settings.toggler = True
             print (settings.toggler)
