@@ -52,7 +52,7 @@ class ToggleButton():
             self.clicked = True
 
         else: self.clicked = False
-
+        # state toggler
         if self.clicked == True and self.state == 1:
             print(self.toggler + ' turned off!')
             self.state = 0
@@ -69,13 +69,13 @@ class ToggleButton():
         if self.rect.collidepoint(pygame.mouse.get_pos()):
             self.hover = True
         else:
-            self.hover = False        
+            self.hover = False    
         if self.hover == True:
-            if not self.played and settings.sound_on == True:
-                pygame.mixer.Sound('FFE_game\sounds\interact.wav').play()
-                self.played = False
-            else:
-                self.played = True        
+            if not self.played:
+                pygame.mixer.Sound('FFE_game\sounds\interact.wav').play()    
+                self.played = True
+        else:
+            self.played = False
 
     def blitter(self, lis):
         self.lis = lis
