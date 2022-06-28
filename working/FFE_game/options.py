@@ -24,7 +24,11 @@ class OptPage:
         run = True
         # get in touch with global settings
         # self.settings = Settings()
-        # start while loop, check for q     
+        # start while loop, check for q   
+        if settings.music_on == True:
+            settings.play_music('OST', 'main_theme')
+        elif settings.music_on == False:
+            settings.stop_music()  
         while run:
             self.clock.tick(60)
             for event in pygame.event.get():
@@ -34,6 +38,7 @@ class OptPage:
                     if event.key == pygame.K_q:
                         sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
+                    # simple on click sound
                     if settings.sound_on == True:
                         pygame.mixer.Sound('FFE_game\sounds\on_click.wav').set_volume(0.2)
                         pygame.mixer.Sound('FFE_game\sounds\on_click.wav').play()

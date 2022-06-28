@@ -17,9 +17,9 @@ class Settings:
         self.sound_on = True
         self.twox_res = False
 #-----------------------------------------------------
-    def play_music(self, typem, namem):
-        self.type = typem
-        self.name = namem
+    def play_music(self, type, name):
+        self.type = type
+        self.name = name
         if self.type == 'OST':
             pygame.mixer.music.load('FFE_game\OST\\' + self.name + '.wav')
             pygame.mixer.music.set_volume(0.4)
@@ -28,5 +28,5 @@ class Settings:
     def stop_music(self):
         pygame.mixer.music.pause()
 
-global settings
+# global settings
 settings = Settings()
