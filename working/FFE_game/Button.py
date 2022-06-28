@@ -47,8 +47,7 @@ class ToggleButton():
     def button_listener(self):
         if self.rect.collidepoint(pygame.mouse.get_pos()):
             if settings.sound_on == True:
-                pygame.mixer.Sound('FFE_game\sounds\on_click.wav').set_volume(0.2)
-                pygame.mixer.Sound('FFE_game\sounds\on_click.wav').play()
+                settings.interact_sound('interact')
             self.clicked = True
 
         else: self.clicked = False
