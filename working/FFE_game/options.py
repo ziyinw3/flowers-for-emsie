@@ -23,8 +23,10 @@ class OptPage:
     def run(self):
         run = True
         while run:
-            if settings.music_on == False:
-                settings.stop_music()  
+            # if settings.music_on == True:
+            #     settings.play_music('OST', 'main_theme') 
+            # else:
+            #     settings.stop_music()
             self.clock.tick(60)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

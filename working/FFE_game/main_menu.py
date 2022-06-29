@@ -28,6 +28,9 @@ class MainMenu:
         # self.settings = Settings()
         if settings.music_on == True:
             settings.play_music('OST', 'main_theme')
+        else:
+            settings.music_on = False
+            settings.stop_music()
         while run:
             self.clock.tick(60)
             for event in pygame.event.get():
