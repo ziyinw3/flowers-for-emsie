@@ -29,9 +29,6 @@ class Button:
             pg_instance.run()
             del pg_instance
 
-    # function for buttons that change settings only
-    # def pressed_setting(self):
-
 
 class ToggleButton():
     def __init__(self, x, y, dimx, dimy, toggler, state):
@@ -53,10 +50,8 @@ class ToggleButton():
 
         # state toggler
         if self.clicked == True and self.state == 1:
-            print(self.toggler + ' turned off!')
             self.state = 0
         elif self.clicked == True and self.state == 0:
-            print(self.toggler + ' turned on!')
             self.state = 1
 
     # new combined method for hover detection and sound playing    

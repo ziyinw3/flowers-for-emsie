@@ -25,7 +25,6 @@ class MainMenu:
 
     def run(self):
         run = True
-        # self.settings = Settings()
         if settings.music_on == True:
             settings.play_music('OST', 'main_theme')
         else:
