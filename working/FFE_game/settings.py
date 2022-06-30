@@ -16,6 +16,8 @@ class Settings:
         self.music_on = True
         self.sound_on = True
         self.twox_res = False
+
+        self.state = 'main_menu'
 #-----------------------------------------------------
     def play_music(self, typem, name):
         self.type = typem

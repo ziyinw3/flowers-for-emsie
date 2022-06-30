@@ -31,3 +31,5 @@ on screen buttons for retry and new maze:
 endgame:
 convert to .exe for publishing
 fit different resolutions?
+
+minor bug, sound button doesn't toggle properly if music button is turned off first

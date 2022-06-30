@@ -89,7 +89,7 @@ class ToggleButton():
     def sound_toggle(self):
         if self.state == 0:
             settings.stop_sound()
-        else:
+        if self.state == 1:
             settings.resume_sound()
 
     # dummy funct for toggling 2x resolution

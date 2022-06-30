@@ -4,7 +4,7 @@ from Button import ToggleButton
 
 import pygame, sys
 
-from spritesheet import cursor, cursor_rect, op, flower_bu, flower_bd, flower_toggle
+from spritesheet import cursor, cursor_rect, op, flower_toggle
 
 # initialize buttons, music and sound on, 2xres off
 
@@ -30,6 +30,12 @@ class OptPage:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         sys.exit()
+                    if event.key == pygame.K_ESCAPE:
+                        # thread back to last screen visited
+                        screen = pygame.display.set_mode((640, 480))
+                        from main_menu import MainMenu
+                        mainMenu = MainMenu(screen)
+                        mainMenu.run()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     # simple on click sound
                     if sound_b.state == 1:
