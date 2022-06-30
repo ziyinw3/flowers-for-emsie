@@ -32,6 +32,7 @@ class OptPage:
                         sys.exit()
                     if event.key == pygame.K_ESCAPE:
                         # thread back to last screen visited
+                        settings.state = 'main_menu2'
                         screen = pygame.display.set_mode((640, 480))
                         from main_menu import MainMenu
                         mainMenu = MainMenu(screen)

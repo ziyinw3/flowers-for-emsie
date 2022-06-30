@@ -26,8 +26,10 @@ class MainMenu:
     def run(self):
         run = True
         # communicate with settings
-        if settings.music_on == True:
+        if settings.music_on == True and settings.state == 'main_menu':
             settings.play_music('OST', 'main_theme')
+        elif settings.music_on == True and settings.state == 'main_menu2':
+            settings.resume_music()
         else:
             settings.music_on = False
             settings.stop_music()
