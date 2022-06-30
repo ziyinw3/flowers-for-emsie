@@ -12,6 +12,8 @@ from spritesheet import mm, buttonu, buttond, cursor, cursor_rect
 
 # initialize some buttons
 
+navi = pygame.image.load('FFE_game\images\\navigation_tips.png')
+
 start_b = Button(buttonu[0], buttond[0], 256, 265, FFEGame, 128, 52)
 load_b = Button(buttonu[1], buttond[1], 256, 265 + 60, LoadPage, 128, 52)
 opt_b = Button(buttonu[2], buttond[2], 256, 265 + 120, OptPage, 128, 52)
@@ -22,6 +24,7 @@ class MainMenu:
         self.clock = pygame.time.Clock()
         self.mm_count = 0 
         # track menu animation
+        self.click_count = 0
 
     def run(self):
         run = True
@@ -46,13 +49,15 @@ class MainMenu:
                     if event.key == pygame.K_q:
                         sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
+                    self.click_count += 1
                     # simple on click sound
                     if settings.sound_on == True:
                         settings.interact_sound('on_click')
                     # instances are dummy names
-                    start_b.pressed_navi('a')
-                    load_b.pressed_navi('b')
-                    opt_b.pressed_navi('c')
+                    if self.click_count > 2 and settings.state == 'main_menu' or settings.state == 'main_menu2':
+                        start_b.pressed_navi('a')
+                        load_b.pressed_navi('b')
+                        opt_b.pressed_navi('c')
             if settings.sound_on == True:
                 start_b.hover_sound()
                 load_b.hover_sound()
@@ -65,7 +70,10 @@ class MainMenu:
 
             self.draw_mm()
             self.draw_buttons()
+            if self.click_count == 1 and settings.state == 'main_menu':
+                self.screen.blit(navi, (0, 0))
             self.draw_curs()
+
         pygame.quit()
 
     def draw_mm(self):        
