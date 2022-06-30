@@ -36,7 +36,7 @@ class OptPage:
                         sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     # simple on click sound
-                    if settings.sound_on == True:
+                    if sound_b.state == 1:
                         settings.interact_sound('on_click')
                     music_b.button_listener()
                     music_b.music_toggle()

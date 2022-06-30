@@ -46,7 +46,7 @@ class ToggleButton():
     # actual toggler
     def button_listener(self):
         if self.rect.collidepoint(pygame.mouse.get_pos()):
-            if settings.sound_on == True:
+            if self.state == 1:
                 settings.interact_sound('interact')
             self.clicked = True
         else: self.clicked = False
@@ -84,6 +84,7 @@ class ToggleButton():
             self.last_blit = 0
         return self.lis[self.last_blit]
 
+    # exclusive for music_b
     def music_toggle(self):
         if self.state == 0:
             settings.stop_music()
