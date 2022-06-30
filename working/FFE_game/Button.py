@@ -66,7 +66,7 @@ class ToggleButton():
         else:
             self.hover = False    
         if self.hover == True:
-            if not self.played:
+            if not self.played and settings.sound_on == True:
                 settings.interact_sound('interact')  
                 self.played = True
         else:
@@ -91,4 +91,11 @@ class ToggleButton():
         else:
             settings.resume_music()
     
+    def sound_toggle(self):
+        if self.state == 0:
+            settings.stop_sound()
+        else:
+            settings.resume_sound()
+
+    # dummy funct for toggling 2x resolution
     

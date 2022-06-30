@@ -41,6 +41,7 @@ class OptPage:
                     music_b.button_listener()
                     music_b.music_toggle()
                     sound_b.button_listener()
+                    sound_b.sound_toggle()
                     twox_b.button_listener()
         # write button hovers, sounds, and store button clicked state and blit clicked image
                 music_b.hover_sound()

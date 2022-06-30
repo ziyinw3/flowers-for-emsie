@@ -36,6 +36,12 @@ class Settings:
         self.sound = pygame.mixer.Sound('FFE_game\sounds\\' + self.sname + '.wav')
         self.sound.set_volume(0.7)
         pygame.mixer.Sound.play(self.sound)
+
+    def stop_sound(self):
+        pygame.mixer.pause()
+
+    def resume_sound(self):
+        pygame.mixer.unpause()
         
 
 # global settings
