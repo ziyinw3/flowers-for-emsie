@@ -39,6 +39,7 @@ class OptPage:
                     if settings.sound_on == True:
                         settings.interact_sound('on_click')
                     music_b.button_listener()
+                    music_b.music_toggle()
                     sound_b.button_listener()
                     twox_b.button_listener()
         # write button hovers, sounds, and store button clicked state and blit clicked image

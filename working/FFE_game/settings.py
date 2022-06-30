@@ -25,6 +25,9 @@ class Settings:
             pygame.mixer.music.set_volume(0.4)
             pygame.mixer.music.play(-1)
     
+    def resume_music(self):
+        pygame.mixer.music.unpause()
+    
     def stop_music(self):
         pygame.mixer.music.pause()
 

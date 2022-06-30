@@ -49,19 +49,15 @@ class ToggleButton():
             if settings.sound_on == True:
                 settings.interact_sound('interact')
             self.clicked = True
-
         else: self.clicked = False
+
         # state toggler
         if self.clicked == True and self.state == 1:
             print(self.toggler + ' turned off!')
             self.state = 0
-            settings.music_on = False
-            print (settings.music_on)
         elif self.clicked == True and self.state == 0:
             print(self.toggler + ' turned on!')
             self.state = 1
-            settings.music_on = True
-            print (settings.music_on)
 
     # new combined method for hover detection and sound playing    
     def hover_sound(self):
@@ -88,6 +84,10 @@ class ToggleButton():
             self.last_blit = 0
         return self.lis[self.last_blit]
 
-
+    def music_toggle(self):
+        if self.state == 0:
+            settings.stop_music()
+        else:
+            settings.resume_music()
     
     
