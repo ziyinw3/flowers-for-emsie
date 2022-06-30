@@ -83,14 +83,18 @@ class ToggleButton():
     def music_toggle(self):
         if self.state == 0:
             settings.stop_music()
+            settings.music_on = False
         else:
             settings.resume_music()
+            settings.music_on = True
     
     def sound_toggle(self):
         if self.state == 0:
             settings.stop_sound()
-        if self.state == 1:
+            settings.sound_on = False
+        else:
             settings.resume_sound()
+            settings.sound_on = True
 
     # dummy funct for toggling 2x resolution
     
