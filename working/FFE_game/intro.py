@@ -3,11 +3,15 @@
 import pygame, sys
 pygame.init()
 
+from FFE_game import FFEGame
 from settings import settings
 from pyvidplayer import Video
 from spritesheet import cursor, cursor_rect
 
 screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
+pygame.display.set_caption(settings.game_caption)
+pygame.display.set_icon(settings.icon)
+
 main_cutscene = Video("FFE_game\\videos\\sample_vid.mp4")
 main_cutscene.set_size((640, 480))
 
@@ -45,9 +49,14 @@ class Intro:
             self.draw_curs()
             self.pos -= 1/60
 
-            if self.pos < 0:
-                pygame.quit()
-            pygame.display.update()
+            if self.pos > 0:
+                pygame.display.update()
+            else:
+                self.screen.fill(settings.bg_color)
+                pygame.display.update()
+                pg_instance = FFEGame(screen)
+                pg_instance.run()
+                del pg_instance      
 
     def draw_curs(self):
         # blit cursor
