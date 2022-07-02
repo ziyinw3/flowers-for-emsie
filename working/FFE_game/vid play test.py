@@ -6,8 +6,8 @@ win = pygame.display.set_mode((640, 480))
 clock = pygame.time.Clock()
 
 #provide video class with the path to your video
-vid = Video("FFE_game\\videos\\cutscene_2.mp4")
-vid.set_size((640, 480))
+vid = Video("FFE_game\\videos\\sample_vid.mp4")
+vid.set_size((1920/2, 1080/2))
 pic = pygame.image.load('FFE_game\images\chaoz_cube.gif')
 
 while True:
