@@ -44,12 +44,12 @@ class Intro:
                         self.pos -= self.seek_time                        
                         main_cutscene.seek(self.seek_time)
                     
-            self.draw_curs()
+            # self.draw_curs()
             main_cutscene.draw(screen, (0, 0), force_draw=False)
-            self.draw_curs()
             self.pos -= 1/60
 
             if self.pos - 1/60 > 0:
+                # self.draw_curs()
                 pygame.display.update()
             else:
                 self.screen.blit(load_screen, (0, 0))
@@ -66,5 +66,3 @@ class Intro:
 
 # vid = Intro(screen)
 # vid.run()
-
-print(settings.music_on, settings.sound_on)
