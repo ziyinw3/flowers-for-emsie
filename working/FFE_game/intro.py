@@ -6,7 +6,7 @@ pygame.init()
 from FFE_game import FFEGame
 from settings import settings
 from pyvidplayer import Video
-from spritesheet import cursor, cursor_rect
+from spritesheet import cursor, cursor_rect, load_screen
 
 screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
 pygame.display.set_caption(settings.game_caption)
@@ -49,10 +49,10 @@ class Intro:
             self.draw_curs()
             self.pos -= 1/60
 
-            if self.pos > 0:
+            if self.pos - 1/60 > 0:
                 pygame.display.update()
             else:
-                self.screen.fill(settings.bg_color)
+                self.screen.blit(load_screen, (0, 0))
                 pygame.display.update()
                 pg_instance = FFEGame(screen)
                 pg_instance.run()
@@ -66,3 +66,5 @@ class Intro:
 
 vid = Intro(screen)
 vid.run()
+
+print(settings.music_on, settings.sound_on)
