@@ -55,7 +55,7 @@ class FFEGame:
                     emsie.states[3] = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 3:
-                    emsie.vel = 10
+                    emsie.vel = 8
             elif event.type == pygame.MOUSEBUTTONUP:
                 if event.button == 3:
                     emsie.vel = 4
