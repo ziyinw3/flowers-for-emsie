@@ -5,6 +5,7 @@ pygame.init()
 
 from settings import settings
 from pyvidplayer import Video
+from spritesheet import cursor, cursor_rect
 
 screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
 main_cutscene = Video("FFE_game\\videos\\sample_vid.mp4")
@@ -16,12 +17,10 @@ class Intro:
         self.clock = pygame.time.Clock()
         self.click_count = 0
         self.seek_time = 5
-        self.pos = 60
+        self.pos = 29
     
     def run(self):
         run = True
-
-        # listen to settings here
 
         while run:
             #fps for detecting input
@@ -40,14 +39,21 @@ class Intro:
                         self.seek_time = (5 - self.pos % 5)
                         self.pos -= self.seek_time                        
                         main_cutscene.seek(self.seek_time)
-                    print(self.pos, self.seek_time)
                     
-            
+            self.draw_curs()
             main_cutscene.draw(screen, (0, 0), force_draw=False)
+            self.draw_curs()
             self.pos -= 1/60
-            
+
+            if self.pos < 0:
+                pygame.quit()
             pygame.display.update()
 
-vid = Intro(screen)
+    def draw_curs(self):
+        # blit cursor
+        cursor_rect.center = pygame.mouse.get_pos()  # update position 
+        self.screen.blit(cursor, cursor_rect)
+        pygame.display.update()    
 
+vid = Intro(screen)
 vid.run()

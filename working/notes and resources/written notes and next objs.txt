@@ -32,4 +32,4 @@ endgame:
 convert to .exe for publishing
 fit different resolutions?
 
-minor bug, sound button doesn't toggle properly if music button is turned off first
+minor bug, cursor blits with slight trail and long trail after last click
