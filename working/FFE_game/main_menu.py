@@ -4,6 +4,8 @@ from load import LoadPage
 from Button import Button
 from settings import settings
 
+from intro import Intro
+
 # from run import settings
 
 import pygame, sys
@@ -14,7 +16,7 @@ from spritesheet import mm, buttonu, buttond, cursor, cursor_rect
 
 navi = pygame.image.load('FFE_game\images\\navigation_tips.png')
 
-start_b = Button(buttonu[0], buttond[0], 256, 265, FFEGame, 128, 52)
+start_b = Button(buttonu[0], buttond[0], 256, 265, Intro, 128, 52)
 load_b = Button(buttonu[1], buttond[1], 256, 265 + 60, LoadPage, 128, 52)
 opt_b = Button(buttonu[2], buttond[2], 256, 265 + 120, OptPage, 128, 52)
 

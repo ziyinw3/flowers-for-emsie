@@ -64,7 +64,7 @@ class Intro:
         self.screen.blit(cursor, cursor_rect)
         pygame.display.update()    
 
-vid = Intro(screen)
-vid.run()
+# vid = Intro(screen)
+# vid.run()
 
 print(settings.music_on, settings.sound_on)
