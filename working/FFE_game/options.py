@@ -74,6 +74,4 @@ class OptPage:
         self.screen.blit(music_b.blitter(flower_toggle), music_b.pos)
         self.screen.blit(sound_b.blitter(flower_toggle), sound_b.pos)
         self.screen.blit(twox_b.blitter(flower_toggle), twox_b.pos)
-
-        # write back button that can thread back to previous screen??
         
